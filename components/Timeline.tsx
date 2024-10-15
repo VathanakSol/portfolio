@@ -93,7 +93,7 @@ const timelineData: TimelineItem[] = [
         type: 'work',
         title: 'Customer Service',
         organization: 'KFC Restaurant',
-        period: 'May 2023 - August 2023',
+        period: 'May 2022 - August 2022',
         description: [
             'Provided exceptional customer service by addressing inquiries and resolving complaints in a timely manner.',
             'Maintained a clean and welcoming environment for customers, ensuring a positive dining experience.',
