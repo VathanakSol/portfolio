@@ -19,7 +19,7 @@ import { ModeToggle } from './ModeToggle';
 const navItems = [
   { name: 'Home', path: '/' },
   { name: 'Project', path: '/project' },
-  { name: 'Course', path: '/courses' },
+  { name: 'Learning', path: '/learning' },
   { name: 'About', path: '/about' },
   { name: 'Contact', path: '/contact' },
 ];
