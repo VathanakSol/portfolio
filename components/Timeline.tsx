@@ -19,26 +19,26 @@ const timelineData: TimelineItem[] = [
         id: 1,
         type: 'education',
         title: 'Information Technology Expert Scholarship Program 2nd Generation',
-        organization: 'College Science Technology Advanced Development',
+        organization: 'Institute of Science and Technology Advanced Development',
         period: '2023 - Present',
         description: [
-            'Graduated with Honors (Cum Laude)',
-            'Capstone Project: Developed a mobile app for campus navigation',
-            'Active member of the Coding Club and Hackathon participant'
+            'Graduated with Basic Fundamental Program (4 months)',
+            'Graduated with Basic IT Expert Program (5 months)',
+            'Graduated with Advanced IT Expert DevOps Course (4 months)',
+            'Capstone Project: Open Source Template, DealKH',
         ]
     },
     {
         id: 2,
         type: 'work',
-        title: 'Senior Full Stack Developer',
-        organization: 'Tech Innovators Inc.',
-        period: '2021 - Present',
+        title: 'Spring Internship',
+        organization: 'Spring Education Center',
+        period: 'May 2023 - July 2023',
         description: [
-            'Led a team of 5 developers in creating a cloud-based project management tool.',
-            'Implemented microservices architecture using Node.js and Docker.',
-            'Improved application performance by 40% through optimizing database queries and implementing caching strategies.'
+            'Experience with team work on marketing strategy work',
+            'Obtain hard skill and soft skill about public social communicating',
         ],
-        skills: ['React', 'Node.js', 'Docker', 'MongoDB', 'GraphQL']
+        skills: ['Language', 'Social Sharing', 'Speaking']
     },
     {
         id: 3,
@@ -47,36 +47,60 @@ const timelineData: TimelineItem[] = [
         organization: 'Royal University of Phnom Penh',
         period: '2021 - 2024',
         description: [
-            'Specialized in Artificial Intelligence and Machine Learning.',
-            'Thesis: "Implementing Deep Learning Models for Natural Language Processing"',
-            'GPA: 3.8/4.0'
+            'Deep dive with backend language such as C, C++, Python, Java, C# and PHP programming',
+            'Understanding with mathematic, physic, history, and robotic',
+            'Gain fully 21st century of hard skill and soft skill',
+            'Practical with web design has HTML, CSS, Javascript',
+            'Explore with database as mysql and library framework like Bootstrap, Laravel, .NET',
         ]
     },
     {
         id: 4,
         type: 'work',
-        title: 'Frontend Developer',
-        organization: 'WebSolutions Co.',
-        period: '2017 - 2021',
+        title: 'Seagames Volunteer',
+        organization: 'Seagames Event Organization',
+        period: 'April 2023 - May 2023',
         description: [
-            'Developed responsive web applications using React and Redux.',
-            'Collaborated with UX designers to implement pixel-perfect, accessible interfaces.',
-            'Reduced load times by 25% through code splitting and lazy loading techniques.'
+            'Work as IT supports',
+            'Collaborated with team to implement scoring system, accessible with event games.',
         ],
-        skills: ['React', 'Redux', 'SASS', 'Webpack', 'Jest']
+        skills: ['Computer', 'IT Support', 'Teamwork',]
     },
     {
         id: 5,
         type: 'education',
-        title: 'Bachelor of Science in Software Engineering',
-        organization: 'State University',
-        period: '2013 - 2017',
+        title: 'High school',
+        organization: 'Hun Sen Saang High School',
+        period: '2019 - 2020',
         description: [
-            'Graduated with Honors (Cum Laude)',
-            'Capstone Project: Developed a mobile app for campus navigation',
-            'Active member of the Coding Club and Hackathon participant'
+            'Graduated with High school diploma',
+            'Education with general knowledge with science programme',
         ]
-    }
+    },
+    {
+        id: 6,
+        type: 'education',
+        title: 'Primary school with Secondary High school',
+        organization: 'Vattanac Chhoung Leap High School',
+        period: '2008 - 2017',
+        description: [
+            'Obtain and learn primary language (Khmer) and English',
+            'Fully find out of anything both hard skill and soft skill',
+        ]
+    },
+    {
+        id: 7,
+        type: 'work',
+        title: 'Customer Service',
+        organization: 'KFC Restaurant',
+        period: 'May 2023 - August 2023',
+        description: [
+            'Provided exceptional customer service by addressing inquiries and resolving complaints in a timely manner.',
+            'Maintained a clean and welcoming environment for customers, ensuring a positive dining experience.',
+            'Processed orders accurately and efficiently, contributing to a smooth workflow during peak hours.'
+        ],
+        skills: ['Social Communication', 'Soft Skill', 'Teamwork', 'Time Management']
+    },
 
 ]
 
@@ -108,8 +132,8 @@ export default function Timeline() {
                     <button
                         type="button"
                         className={`px-4 py-2 text-sm font-medium rounded-l-lg ${activeTab === 'work'
-                                ? 'bg-blue-600 text-white'
-                                : 'bg-white text-gray-700 hover:bg-gray-50 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600'
+                            ? 'bg-blue-600 text-white'
+                            : 'bg-white text-gray-700 hover:bg-gray-50 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600'
                             }`}
                         onClick={() => setActiveTab('work')}
                     >
@@ -119,8 +143,8 @@ export default function Timeline() {
                     <button
                         type="button"
                         className={`px-4 py-2 text-sm font-medium rounded-r-lg ${activeTab === 'education'
-                                ? 'bg-green-600 text-white'
-                                : 'bg-white text-gray-700 hover:bg-gray-50 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600'
+                            ? 'bg-green-600 text-white'
+                            : 'bg-white text-gray-700 hover:bg-gray-50 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600'
                             }`}
                         onClick={() => setActiveTab('education')}
                     >
