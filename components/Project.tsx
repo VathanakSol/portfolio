@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Code, Palette, Smartphone, Search } from 'lucide-react';
+import { Code, Palette } from 'lucide-react';
 
 interface Project {
   id: number;
@@ -26,10 +26,10 @@ const projects: Project[] = [
 ];
 
 const services: Service[] = [
-  { id: 1, title: 'Web Development', description: 'Custom website development tailored to your needs.', icon: Code },
-  { id: 2, title: 'UI/UX Design', description: 'Creating intuitive and visually appealing user interfaces.', icon: Palette },
-  { id: 3, title: 'Mobile App Development', description: 'Building responsive and feature-rich mobile applications.', icon: Smartphone },
-  { id: 4, title: 'SEO Optimization', description: 'Improving your website visibility in search engine results.', icon: Search },
+  { id: 1, title: 'Web Development', description: 'Building dynamic and responsive websites using modern technologies.', icon: Code },
+  { id: 2, title: 'UI/UX Design', description: 'Designing user interfaces and experiences that are both functional and aesthetically pleasing.', icon: Palette },
+  { id: 3, title: 'Spring Development', description: 'Developing robust applications using the Spring framework for seamless performance.', icon: Code },
+  { id: 4, title: 'DevOps Engineering', description: 'Streamlining development and operations for faster delivery and improved collaboration.', icon: Code },
 ];
 
 export default function Projects() {
@@ -91,7 +91,7 @@ export default function Projects() {
       
       <section>
         <motion.h2
-          className="text-3xl font-bold mb-6 text-center text-gray-800 dark:text-gray-200"
+          className="text-2xl font-bold mb-6 text-center text-gray-800 dark:text-gray-200"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
@@ -105,7 +105,7 @@ export default function Projects() {
               className="border rounded-lg p-6 hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-gray-800"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: (index + services.length) * .1 }} // Adjusted delay for services
+              transition={{ duration: 0.5, delay: (index + services.length) * .1 }} 
             >
               <div className="flex items-center mb-4">
                 <service.icon className="h-8 w-8 text-blue-500 mr-3" />

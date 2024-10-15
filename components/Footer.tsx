@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter } from 'lucide-react'
+import { Facebook, Github, Youtube } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -6,11 +6,11 @@ export default function Footer() {
       <div className="max-w-5xl mx-auto px-4 py-8">
         <div className="flex justify-between items-center">
           <p className="text-gray-600 dark:text-gray-400">
-            © {new Date().getFullYear()} YourName. All rights reserved.
+            © {new Date().getFullYear()} Sol Vathanak, All rights reserved.
           </p>
           <div className="flex space-x-4">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/vathanaksol"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
@@ -18,20 +18,20 @@ export default function Footer() {
               <Github size={20} />
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://web.facebook.com/vathanak.sol/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
             >
-              <Linkedin size={20} />
+              <Facebook size={20} />
             </a>
             <a
-              href="https://twitter.com/yourusername"
+              href="https://www.youtube.com/@nakkhmertechnology"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
             >
-              <Twitter size={20} />
+              <Youtube size={20} />
             </a>
           </div>
         </div>

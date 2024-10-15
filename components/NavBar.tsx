@@ -15,12 +15,11 @@ import {
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ModeToggle } from './ModeToggle';
-import { useSession } from 'next-auth/react';
 
 const navItems = [
   { name: 'Home', path: '/' },
   { name: 'Project', path: '/project' },
-  { name: 'My Blog', path: '/myblog' },
+  { name: 'Course', path: '/courses' },
   { name: 'About', path: '/about' },
   { name: 'Contact', path: '/contact' },
 ];
@@ -28,7 +27,6 @@ const navItems = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  const { data: session } = useSession();
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
@@ -81,19 +79,6 @@ export default function Navbar() {
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
-
-        {/* User Profile Picture */}
-        {session?.user?.image && (
-          <Link href="/profile" aria-label="Profile" className="flex items-center">
-            <Image
-              src={session.user.image}
-              width={40}
-              height={40}
-              alt="User Profile"
-              className="rounded-full aspect-square object-cover"
-            />
-          </Link>
-        )}
       </div>
 
       {/* Mobile Menu */}
