@@ -5,7 +5,7 @@ import ScrollProgressBar from '@/components/ScrollProgressBar';
 import { Metadata } from 'next/types';
 
 export const metadata: Metadata = {
-  title: "NakTech",
+  title: "Home",
   description: "Portfolio Website",
 };
 
