@@ -4,9 +4,6 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import { getServerSession } from "next-auth/next"; // Import getServerSession
-import { authOptions } from "@/app/api/auth/[...nextauth]/route"; // Adjust the path as necessary
-import SessionProvider from "@/components/SessionProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +17,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await getServerSession(authOptions); 
 
   return (
     <html lang="en">
@@ -31,11 +27,11 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SessionProvider session={session}> 
+         
             <NavBar />
             {children}
             <Footer />
-          </SessionProvider>
+          
         </ThemeProvider>
       </body>
     </html>
