@@ -25,7 +25,7 @@ const services = [
       'Performance optimization',
       'SEO-friendly development'
     ],
-    technologies: ['React', 'Next.js', 'Node.js', 'TypeScript', 'GraphQL', 'REST APIs'],
+    technologies: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Redux', 'Formik', 'NextAuth'],
     process: [
       { title: 'Requirements Gathering', description: 'We start by understanding your needs and project goals.' },
       { title: 'Design and Prototyping', description: 'We create wireframes and interactive prototypes for your approval.' },
@@ -49,7 +49,7 @@ const services = [
       'Interaction design',
       'Usability testing'
     ],
-    technologies: ['Figma', 'Adobe XD', 'Sketch', 'InVision', 'Zeplin', 'UserTesting'],
+    technologies: ['Figma', 'Adobe XD'],
     process: [
       { title: 'Research', description: 'We conduct user research to understand your target audience and their needs.' },
       { title: 'Information Architecture', description: 'We organize and structure your content for optimal user experience.' },
@@ -97,7 +97,7 @@ const services = [
       'Monitoring and logging',
       'Security and compliance'
     ],
-    technologies: ['Docker', 'Kubernetes', 'Jenkins', 'GitLab CI', 'Terraform', 'Ansible', 'Prometheus', 'ELK Stack'],
+    technologies: ['Docker', 'Kubernetes', 'Jenkins', 'GitLab CI', 'Terraform', 'Ansible', 'Prometheus'],
     process: [
       { title: 'Assessment', description: 'We assess your current development and deployment processes to identify areas for improvement.' },
       { title: 'Strategy Development', description: 'We create a DevOps strategy tailored to your organization\'s needs.' },
@@ -120,7 +120,7 @@ export default function ServicePage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto px-4 pb-10">
       <Link href="/services" passHref>
         <Button variant="ghost" className="mb-6">
           <ArrowLeft className="mr-2 h-4 w-4" /> Back to Services
@@ -138,7 +138,7 @@ export default function ServicePage() {
                 <service.icon className="h-8 w-8 text-primary-foreground" />
               </div>
               <div>
-                <CardTitle className="text-3xl">{service.title}</CardTitle>
+                <CardTitle className="text-2xl text-blue-500">{service.title}</CardTitle>
                 <CardDescription className="text-lg mt-2">{service.description}</CardDescription>
               </div>
             </div>
@@ -174,9 +174,9 @@ export default function ServicePage() {
                   key={index}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }} 
                 >
-                  <Badge variant="secondary">{tech}</Badge>
+                  <Badge variant="secondary" className="bg-blue-500 text-white hover:text-blue-500 hover:cursor-pointer hover:border-blue-500">{tech}</Badge>
                 </motion.div>
               ))}
             </div>
@@ -215,12 +215,6 @@ export default function ServicePage() {
             </Accordion>
           </CardContent>
         </Card>
-
-        <div className="mt-8 text-center">
-          <Button size="lg">
-            Request a Quote
-          </Button>
-        </div>
       </motion.div>
     </div>
   )

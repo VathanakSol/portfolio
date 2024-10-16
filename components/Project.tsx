@@ -33,7 +33,7 @@ const projects: Project[] = [
     title: 'DealKH', 
     description: 'E-commerce Website for deals and discounts in Cambodia', 
     image: '/assets/dealkh.jpg',
-    technologies: ['React', 'Node.js', 'MongoDB'],
+    technologies: ['Next.js', 'Spring Boot', 'Postgres'],
     link: 'https://dealkh.istad.co'
   },
   { 
@@ -41,7 +41,7 @@ const projects: Project[] = [
     title: 'Open Source Template', 
     description: 'Free Template Website Download for developers', 
     image: '/assets/opensourcetemplate.jpg',
-    technologies: ['HTML', 'CSS', 'JavaScript'],
+    technologies: ['HTML', 'CSS', 'JavaScript','jQuery'],
     link: 'https://opensource-templates-9xu7.vercel.app/'
   },
   { 
@@ -49,7 +49,7 @@ const projects: Project[] = [
     title: 'SpringOps', 
     description: 'Automation CI/CD pipeline Website for Spring applications', 
     image: '/assets/springops.jpg',
-    technologies: ['Spring Boot', 'Docker', 'Jenkins'],
+    technologies: ['Spring Boot', 'Java', 'Next.js'],
     link: 'https://spring-ops2.psa-khmer.world/'
   },
 ];
@@ -192,7 +192,7 @@ export default function ProjectsAndServices() {
                           <div className="p-2 bg-primary rounded-full">
                             <service.icon className="h-6 w-6 text-primary-foreground" />
                           </div>
-                          <CardTitle>{service.title}</CardTitle>
+                          <CardTitle className="text-blue-500">{service.title}</CardTitle>
                         </div>
                         <Button
                           variant="ghost"
@@ -232,7 +232,7 @@ export default function ProjectsAndServices() {
                     </CardContent>
                     <CardFooter>
                       <Link href={`/services/${service.id}`}>
-                        <Button variant="outline">Learn More</Button>
+                        <Button className="bg-blue-500 border border-blue-500 text-white hover:text-blue-500">Learn More</Button>
                       </Link>
                     </CardFooter>
                   </Card>
