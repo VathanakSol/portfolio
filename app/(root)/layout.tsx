@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import VisitorCounter from "@/components/VisitorCounter";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,8 +28,9 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-         
+          
             <NavBar />
+            <VisitorCounter />
             {children}
             <Footer />
           

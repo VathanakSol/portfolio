@@ -1,3 +1,4 @@
+
 import BackToTopButton from '@/components/BackToTopButton';
 import Header from '@/components/Header';
 import Projects from '@/components/Project';
@@ -14,9 +15,9 @@ export default function HomePage() {
     <>
       <ScrollProgressBar />
       <main>
-            <Header />
-            <Projects />
-            <BackToTopButton />
+          <Header />
+          <Projects />
+          <BackToTopButton />
       </main>
     </>
       
