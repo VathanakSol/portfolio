@@ -10,6 +10,7 @@ import CodeSnippet from './CodeSnippet'
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [easterEggTriggered, setEasterEggTriggered] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,15 +67,25 @@ fn main() {
     }
   ];
 
+  const handleEasterEggClick = () => {
+    if (!easterEggTriggered) {
+      setEasterEggTriggered(true);
+      
+      // Optionally, reset after some time
+      setTimeout(() => setEasterEggTriggered(false), 5000); // Reset after 5 seconds
+    }
+  };
+
   return (
     <header className={`bg-gray-50 dark:bg-gray-800 transition-all duration-300 ${isScrolled ? 'shadow-lg' : ''}`}>
       <div className="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between">
-          <div className="text-center md:text-left md:w-1/2">
+          <div className="text-center md:text-left md:w-1/2 relative"> {/* Added relative positioning */}
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
+              onClick={handleEasterEggClick} // Add click handler here
             >
               <Image
                 src="/assets/profile.jpg"
@@ -83,6 +94,13 @@ fn main() {
                 height={200}
                 className="mx-auto md:mx-0 rounded-full border-4 border-gray-100 shadow-lg flex justify-center items-center"
               />
+              
+              {/* Badge Notification */}
+              {easterEggTriggered && (
+                <span className="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                  🎉 Easter Egg Found!
+                </span>
+              )}
             </motion.div>
             <motion.h1
               className="mt-6 text-4xl font-extrabold text-blue-700 dark:text-blue-300 sm:text-5xl sm:tracking-tight lg:text-6xl"
@@ -141,4 +159,4 @@ fn main() {
   )
 }
 
-export default Header
+export default Header;

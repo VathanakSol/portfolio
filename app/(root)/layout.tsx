@@ -27,8 +27,8 @@ export default async function RootLayout({
           defaultTheme="light"
           enableSystem
           disableTransitionOnChange
-        >
-          
+        >       
+            
             <NavBar />
             <VisitorCounter />
             {children}
