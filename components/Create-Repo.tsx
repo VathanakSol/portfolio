@@ -11,7 +11,7 @@ const CreateRepo = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        const response = await fetch('/api/github', {
+        const response = await fetch('https://naktech.pro/api/github', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
