@@ -4,7 +4,7 @@ import { Octokit } from '@octokit/rest';
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 
 const corsHeaders = {
-    'Access-Control-Allow-Origin': 'https://naktech.pro',   
+    'Access-Control-Allow-Origin': 'https://naktech.pro',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type, Authorization',
 };
@@ -34,8 +34,18 @@ export async function POST(req: NextRequest) {
     });
   } catch (error) {
     console.error('Error creating repository:', error);
+
+    // Check for Octokit specific error
+    if (error instanceof Error && error.message.includes('404')) {
+      return NextResponse.json(
+        { error: 'You do not have permission to create a repository for this user.' }, 
+        { status: 403, headers: corsHeaders }
+      );
+    }
+
+    // Fallback for other errors
     return NextResponse.json(
-      { error }, 
+      { error: error || 'Failed to create repository' }, 
       { status: 500, headers: corsHeaders }
     );
   }
