@@ -4,7 +4,7 @@ import { Octokit } from '@octokit/rest';
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 
 const corsHeaders = {
-    'Access-Control-Allow-Origin': '*', // Allow all origins
+    'Access-Control-Allow-Origin': 'https://naktech.pro',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type, Authorization',
 };
