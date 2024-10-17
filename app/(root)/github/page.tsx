@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useEffect, useState } from 'react';
 import { GitHubLogoIcon } from '@radix-ui/react-icons';
@@ -6,8 +6,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import Link from 'next/link';
 
-// Fetch GitHub repositories
 async function fetchGitHubRepos(username: string): Promise<[]> {
     const res = await fetch(`https://api.github.com/users/${username}/repos`);
     if (!res.ok) throw new Error('Failed to fetch repositories');
@@ -115,14 +115,23 @@ function RepoList({ username }: { username: string }) {
 
     return (
         <>
+
             <div className="mb-4 flex justify-between">
-                <input
-                    type="text"
-                    placeholder="Search Repositories..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="border p-2 rounded"
-                />               
+                <div className="flex gap-4">
+                    <input
+                        type="text"
+                        placeholder="Search Repositories..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        className="border p-2 rounded"
+                    />
+                    <Link href="/github/create-repo">
+                        <Button className="bg-blue-500 px-2 text-white hover:bg-blue-400">
+                            Create New Repository
+                        </Button>
+                    </Link>
+
+                </div>
                 <select
                     value={sortOption}
                     onChange={(e) => setSortOption(e.target.value)}
@@ -130,7 +139,7 @@ function RepoList({ username }: { username: string }) {
                 >
                     <option value="stars">Sort by Stars</option>
                     <option value="forks">Sort by Forks</option>
-                    <option value="dates">Sort by Dates</option> 
+                    <option value="dates">Sort by Dates</option>
                 </select>
             </div>
 

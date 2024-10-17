@@ -6,6 +6,7 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import VisitorCounter from "@/components/VisitorCounter";
 import { Analytics } from "@vercel/analytics/react"
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +35,7 @@ export default async function RootLayout({
             <VisitorCounter />
             {children}
             <Analytics />
+            <Toaster />
             <Footer />
           
         </ThemeProvider>
