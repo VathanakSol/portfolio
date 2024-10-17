@@ -15,14 +15,21 @@ async function fetchGitHubRepos(username: string): Promise<[]> {
 }
 
 interface Repo {
-    id: number;
-    name: string;
-    description: string;
-    language: string;
-    stargazers_count: number;
-    forks_count: number;
-    html_url: string;
-    created_at: string;
+    name: string
+    description: string
+    language: string
+    stargazers_count: number
+    forks_count: number
+    watchers_count: number
+    html_url: string
+    created_at: string
+    updated_at: string
+    owner: {
+        login: string
+        avatar_url: string
+    }
+    topics: string[]
+    readme: string
 }
 
 function RepoCard({ repo }: { repo: Repo }) {
@@ -40,6 +47,11 @@ function RepoCard({ repo }: { repo: Repo }) {
                 </div>
             </CardContent>
             <CardFooter>
+                <Button asChild>
+                    <Link href={`/github/${repo.owner.login}/${repo.name}`}>
+                        View Details
+                    </Link>
+                </Button>
                 <Button asChild>
                     <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
                         View on GitHub
@@ -75,7 +87,7 @@ function RepoList({ username }: { username: string }) {
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
     const [sortOption, setSortOption] = useState('stars');
-    
+
     // Pagination states
     const [currentPage, setCurrentPage] = useState(1);
     const [reposPerPage] = useState(6); // Number of repos per page
@@ -114,7 +126,7 @@ function RepoList({ username }: { username: string }) {
         if (sortOption === 'stars') return b.stargazers_count - a.stargazers_count;
         if (sortOption === 'forks') return b.forks_count - a.forks_count;
         if (sortOption === 'dates') return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
-        return 0; 
+        return 0;
     });
 
     // Pagination logic
@@ -165,16 +177,16 @@ function RepoList({ username }: { username: string }) {
                     {/* Repository Cards */}
                     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                         {currentRepos.map((repo: Repo) => (
-                            <RepoCard key={repo.id} repo={repo} />
+                            <RepoCard key={repo.name} repo={repo} />
                         ))}
                     </div>
 
                     {/* Pagination Controls */}
                     <div className="flex justify-center mt-4">
                         {Array.from({ length: totalPages }, (_, i) => (
-                            <Button 
-                                key={i} 
-                                onClick={() => setCurrentPage(i + 1)} 
+                            <Button
+                                key={i}
+                                onClick={() => setCurrentPage(i + 1)}
                                 className={`mx-1 ${currentPage === i + 1 ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
                             >
                                 {i + 1}
