@@ -3,6 +3,12 @@ import { Octokit } from '@octokit/rest';
 
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 
+const corsHeaders = {
+    'Access-Control-Allow-Origin': '*', // Allow all origins
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+};
+
 // POST request handler
 export async function POST(req: NextRequest) {
   if (!process.env.GITHUB_TOKEN) {
@@ -42,17 +48,3 @@ export function OPTIONS() {
     headers: corsHeaders,
   });
 }
-
-// CORS headers
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*', // Allow all origins
-  'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-};
-
-// Config for API route
-// export const config = {
-//   api: {
-//     bodyParser: false,
-//   },
-// };
