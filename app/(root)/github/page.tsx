@@ -75,6 +75,10 @@ function RepoList({ username }: { username: string }) {
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
     const [sortOption, setSortOption] = useState('stars');
+    
+    // Pagination states
+    const [currentPage, setCurrentPage] = useState(1);
+    const [reposPerPage] = useState(6); // Number of repos per page
 
     useEffect(() => {
         const fetchRepos = async () => {
@@ -94,7 +98,7 @@ function RepoList({ username }: { username: string }) {
     if (loading) {
         return (
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {[...Array(6)].map((_, i) => <RepoSkeleton key={i} />)}
+                {[...Array(reposPerPage)].map((_, i) => <RepoSkeleton key={i} />)}
             </div>
         );
     }
@@ -109,13 +113,21 @@ function RepoList({ username }: { username: string }) {
     const sortedRepos = [...filteredRepos].sort((a, b) => {
         if (sortOption === 'stars') return b.stargazers_count - a.stargazers_count;
         if (sortOption === 'forks') return b.forks_count - a.forks_count;
-        if (sortOption === 'dates') return new Date(b.created_at).getTime() - new Date(a.created_at).getTime(); // Sort by latest creation date
-        return 0; // Default case (no sorting)
+        if (sortOption === 'dates') return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+        return 0; 
     });
+
+    // Pagination logic
+    const indexOfLastRepo = currentPage * reposPerPage;
+    const indexOfFirstRepo = indexOfLastRepo - reposPerPage;
+    const currentRepos = sortedRepos.slice(indexOfFirstRepo, indexOfLastRepo);
+
+    // Calculate total pages
+    const totalPages = Math.ceil(sortedRepos.length / reposPerPage);
 
     return (
         <>
-
+            {/* Search and Sort Controls */}
             <div className="mb-4 flex justify-between">
                 <div className="flex gap-4">
                     <input
@@ -149,11 +161,27 @@ function RepoList({ username }: { username: string }) {
                     <p>No repositories found for &quot;<strong className="text-blue-500">{searchTerm}</strong>&quot;</p>
                 </div>
             ) : (
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {sortedRepos.map((repo: Repo) => (
-                        <RepoCard key={repo.id} repo={repo} />
-                    ))}
-                </div>
+                <>
+                    {/* Repository Cards */}
+                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                        {currentRepos.map((repo: Repo) => (
+                            <RepoCard key={repo.id} repo={repo} />
+                        ))}
+                    </div>
+
+                    {/* Pagination Controls */}
+                    <div className="flex justify-center mt-4">
+                        {Array.from({ length: totalPages }, (_, i) => (
+                            <Button 
+                                key={i} 
+                                onClick={() => setCurrentPage(i + 1)} 
+                                className={`mx-1 ${currentPage === i + 1 ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+                            >
+                                {i + 1}
+                            </Button>
+                        ))}
+                    </div>
+                </>
             )}
         </>
     );
