@@ -20,7 +20,6 @@ const navItems = [
   { name: 'Home', path: '/' },
   { name: 'Service', path: '/services' },
   { name: 'Project', path: '/project' },
-  { name: 'GitHub', path: '/github' },
   { name: 'About', path: '/about' },
   { name: 'Contact', path: '/contact' },
 ];
