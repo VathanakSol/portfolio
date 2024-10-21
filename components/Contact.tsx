@@ -1,77 +1,89 @@
 'use client'
 
-import { useState, ChangeEvent, FormEvent } from 'react'
+import { useState } from 'react'
+import { useFormStatus } from 'react-dom'
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
 
-interface FormData {
-  name: string
-  email: string
-  message: string
+import { sendEmail } from '@/app/actions/send-email'
+import { toast } from '@/hooks/use-toast'
+
+function SubmitButton() {
+  const { pending } = useFormStatus()
+  return (
+    <Button 
+      type="submit" 
+      disabled={pending} 
+      className={`transition-transform duration-200 ${pending ? 'bg-gray-400' : 'bg-blue-600 text-white hover:bg-blue-700 w-full'}`}
+    >
+      {pending ? 'Sending...' : 'Send Message'}
+    </Button>
+  )
 }
 
-export default function Contact() {
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    message: ''
-  })
+export default function ContactPage() {
+  const [formState, setFormState] = useState<{ success?: boolean; message?: string } | null>(null)
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prevState => ({ ...prevState, [name]: value }))
-  }
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    // Here you would typically send the form data to your server or a third-party service
-    console.log('Form submitted:', formData)
-    // Reset form after submission
-    setFormData({ name: '', email: '', message: '' })
+  async function handleSubmit(formData: FormData) {
+    const result = await sendEmail(formData)
+    setFormState(result)
+    if (result.success) {
+      toast({
+        title: "Success!",
+        description: result.message,
+      })
+    } else {
+      toast({
+        title: "Error",
+        description: result.message,
+        variant: "destructive",
+      })
+    }
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-12">
-      <h1 className="text-4xl font-bold mb-8">Contact Me</h1>
-      <form onSubmit={handleSubmit} className="max-w-lg">
-        <div className="mb-4">
-          <label htmlFor="name" className="block text-gray-700 font-bold mb-2">Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-indigo-500"
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-gray-700 font-bold mb-2">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-indigo-500"
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="message" className="block text-gray-700 font-bold mb-2">Message</label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-            rows={4}
-            className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-indigo-500"
-          ></textarea>
-        </div>
-        <button type="submit" className="bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors">
-          Send Message
-        </button>
-      </form>
+    <div className="flex items-center justify-center h-screen w-full">
+      <div className="container px-4 py-8">
+        <h1 className="text-3xl font-bold mb-6 text-center">Contact Me</h1>
+        <form action={handleSubmit} className="space-y-6 max-w-md mx-auto">
+          <div>
+            <Label htmlFor="name">Name</Label>
+            <Input 
+              id="name" 
+              name="name" 
+              required 
+              className="focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150" 
+            />
+          </div>
+          <div>
+            <Label htmlFor="email">Email</Label>
+            <Input 
+              id="email" 
+              name="email" 
+              type="email" 
+              required 
+              className="focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150" 
+            />
+          </div>
+          <div>
+            <Label htmlFor="message">Message</Label>
+            <Textarea 
+              id="message" 
+              name="message" 
+              required 
+              className="focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150" 
+            />
+          </div>
+          <SubmitButton />
+        </form>
+        {formState && (
+          <p className={`mt-4 text-center ${formState.success ? 'text-green-600' : 'text-red-600'}`}>
+            {formState.message}
+          </p>
+        )}
+      </div>
     </div>
   )
 }

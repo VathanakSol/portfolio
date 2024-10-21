@@ -3,6 +3,9 @@ const nextConfig = {
     images: {
         domains: ['img.youtube.com','avatars.githubusercontent.com'],
     },
+    experimental: {
+        serverActions: true,
+    },
     reactStrictMode: true,
     env: {
         KV_URL: process.env.KV_URL,
