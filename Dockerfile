@@ -17,10 +17,10 @@ RUN npm install
 COPY . .
 
 # If using sharp (as mentioned)
-RUN npm install sharp
+RUN npm install sharp && npm run build
 
 # Run the build process to generate production assets
-RUN npm run build
+# RUN npm run build
 
 # Start a new stage from scratch to keep the final image smaller
 FROM node:18-alpine

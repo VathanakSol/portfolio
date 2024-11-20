@@ -1,0 +1,6 @@
+projectKey=portfolio-scan
+serverUrl=http://kab.naktech.pro:9000
+serverVersion=10.7.0.96327
+dashboardUrl=http://kab.naktech.pro:9000/dashboard?id=portfolio-scan
+ceTaskId=db2d6fab-81a9-4823-94d2-97234b2efe61
+ceTaskUrl=http://kab.naktech.pro:9000/api/ce/task?id=db2d6fab-81a9-4823-94d2-97234b2efe61
