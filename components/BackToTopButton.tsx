@@ -37,10 +37,10 @@ const BackToTopButton: React.FC = () => {
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.2 }}
           onClick={scrollToTop}
-          className="fixed bottom-14 right-6 p-2 bg-blue-500 text-blue-foreground rounded-full shadow-lg hover:bg-blue-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+          className="fixed bottom-10 right-6 p-2 bg-blue-500 text-blue-foreground rounded-full shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all ease-in-out focus:ring-primary"
           aria-label="Back to top"
         >
-          <ArrowUp className="w-6 h-6" />
+          <ArrowUp className="w-6 h-6 text-white" />
         </motion.button>
       )}
     </AnimatePresence>
