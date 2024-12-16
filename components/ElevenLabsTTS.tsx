@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 import { convertTextToSpeech } from "@/components/convertTextToSpeech";
 import { SoundMakerIcon } from "@/components/icon";
+import Loader from "@/components/Loader";
 
 const ElevenLabsTTS: React.FC = () => {
     const [text, setText] = useState("");
@@ -81,13 +82,13 @@ const ElevenLabsTTS: React.FC = () => {
                             initial={{ scale: 0.9 }}
                             animate={{ scale: 1 }}
                             exit={{ scale: 0.9 }}
-                            className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 max-w-md w-full"
+                            className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 max-w-md w-full mx-4" // Added mx-4 for mobile padding
                             onClick={(e) => e.stopPropagation()} // Prevent click event from bubbling up
                         >
-                            <h2 className="text-2xl font-bold mb-4 text-blue-500 text-center">NakTech Sound Generator</h2>
+                            <h2 className="text-xl md:text-2xl font-bold mb-4 text-blue-500 text-center">NakTech Sound Generator</h2>
                             <div className="space-y-4">
                                 {/* Voice Selection */}
-                                <div className="">
+                                <div>
                                     <Label><span className="text-red-500">*</span> Select Voice</Label>
                                     <Select value={selectedVoice} onValueChange={setSelectedVoice}>
                                         <SelectTrigger className="w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm">
@@ -106,7 +107,6 @@ const ElevenLabsTTS: React.FC = () => {
                                         </SelectContent>
                                     </Select>
                                 </div>
-
 
                                 {/* Text Input */}
                                 <div>
@@ -133,8 +133,8 @@ const ElevenLabsTTS: React.FC = () => {
                                 >
                                     {isLoading ? (
                                         <>
-                                            Generating...
-                                            {/* Optionally add a spinner here */}
+                                            <Loader />
+                                             Generating...
                                         </>
                                     ) : (
                                         "Generate Speech"
