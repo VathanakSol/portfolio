@@ -31,11 +31,11 @@ const DevOpsPipeline: React.FC = () => {
   const progress = ((currentStage + 1) / stages.length) * 100;
 
   return (
-    <div className="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-4 max-w-2xl mx-auto">
+    <div className="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-4 max-w-2xl mx-auto w-full md:w-auto">
       <h2 className="text-xl font-bold mb-3 text-gray-800 dark:text-gray-200">
         DevOps Pipeline
       </h2>
-      <div className="flex justify-between items-center gap-1 mb-4">
+      <div className="flex flex-wrap md:flex-nowrap justify-between items-center gap-2 md:gap-1 mb-4">
         {stages.map((stage, index) => (
           <motion.div
             key={stage.name}
@@ -43,7 +43,7 @@ const DevOpsPipeline: React.FC = () => {
               index <= currentStage
                 ? stage.color
                 : "bg-gray-300 dark:bg-gray-600"
-            } rounded-lg p-2 transition-colors duration-300 w-[80px] h-[60px]`}
+            } rounded-lg p-2 transition-colors duration-300 w-full md:w-[80px] h-[60px] min-w-[60px]`}
             initial={{ scale: 1 }}
             animate={{ scale: index === currentStage ? 1.1 : 1 }}
           >
