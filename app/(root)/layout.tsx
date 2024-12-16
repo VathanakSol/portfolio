@@ -8,6 +8,7 @@ import VisitorCounter from "@/components/VisitorCounter";
 import { Analytics } from "@vercel/analytics/react"
 import { Toaster } from "@/components/ui/use-toast";
 import ElevenLabsTTS from "@/components/ElevenLabsTTS";
+import BackToTopButton from "@/components/BackToTopButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -55,7 +56,7 @@ export default async function RootLayout({
             <Toaster />
             <Footer />
             <ElevenLabsTTS />
-          
+            <BackToTopButton />
         </ThemeProvider>
 
       </body>

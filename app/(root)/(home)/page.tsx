@@ -1,6 +1,3 @@
-
-import BackToTopButton from '@/components/BackToTopButton';
-
 import Header from '@/components/Header';
 
 import Projects from '@/components/Project';
@@ -21,7 +18,6 @@ export default function HomePage() {
           <Header />
           <YoutubeSection />
           <Projects />
-          <BackToTopButton />
       </main>
     </>
       

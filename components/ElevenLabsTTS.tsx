@@ -7,8 +7,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
-import {convertTextToSpeech} from "@/components/convertTextToSpeech";
-import {SoundMakerIcon} from "@/components/icon";
+import { convertTextToSpeech } from "@/components/convertTextToSpeech";
+import { SoundMakerIcon } from "@/components/icon";
 
 const ElevenLabsTTS: React.FC = () => {
     const [text, setText] = useState("");
@@ -60,7 +60,7 @@ const ElevenLabsTTS: React.FC = () => {
         <div>
             {/* Fixed Button */}
             <button
-                className="fixed bottom-10 left-6 bg-blue-500 text-white px-2 py-2 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all ease-in-out"
+                className="fixed bottom-10 left-6 bg-blue-500 text-white px-4 py-3 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all ease-in-out"
                 onClick={() => setIsOpen(true)}
                 aria-label="Open Text-to-Speech"
             >
@@ -84,18 +84,22 @@ const ElevenLabsTTS: React.FC = () => {
                             className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 max-w-md w-full"
                             onClick={(e) => e.stopPropagation()} // Prevent click event from bubbling up
                         >
-                            <h2 className="text-2xl font-bold mb-4">Text-to-Speech Generator</h2>
+                            <h2 className="text-2xl font-bold mb-4 text-blue-500 text-center">NakTech Sound Generator</h2>
                             <div className="space-y-4">
                                 {/* Voice Selection */}
-                                <div>
-                                    <Label>Select Voice</Label>
+                                <div className="">
+                                    <Label><span className="text-red-500">*</span> Select Voice</Label>
                                     <Select value={selectedVoice} onValueChange={setSelectedVoice}>
-                                        <SelectTrigger className="w-full">
+                                        <SelectTrigger className="w-full bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm">
                                             <SelectValue placeholder="Choose a voice" />
                                         </SelectTrigger>
-                                        <SelectContent>
+                                        <SelectContent className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md shadow-lg">
                                             {voices.map((voice) => (
-                                                <SelectItem key={voice.id} value={voice.id}>
+                                                <SelectItem
+                                                    key={voice.id}
+                                                    value={voice.id}
+                                                    className="hover:bg-blue-500 hover:text-white dark:hover:bg-blue-600 transition-colors"
+                                                >
                                                     {voice.name}
                                                 </SelectItem>
                                             ))}
@@ -103,9 +107,10 @@ const ElevenLabsTTS: React.FC = () => {
                                     </Select>
                                 </div>
 
+
                                 {/* Text Input */}
                                 <div>
-                                    <Label htmlFor="text">Enter Text</Label>
+                                    <Label htmlFor="text"><span className="text-red-500">*</span> Enter Text</Label>
                                     <Textarea
                                         id="text"
                                         placeholder="Type or paste your text here..."
@@ -116,11 +121,24 @@ const ElevenLabsTTS: React.FC = () => {
                                 </div>
 
                                 {/* Error Message */}
-                                {error && <p className="text-red-500 text-sm">{error}</p>}
+                                {error && (
+                                    <p className="text-red-500 text-sm font-semibold">{error}</p>
+                                )}
 
                                 {/* Generate Button */}
-                                <Button onClick={handleGenerateSpeech} disabled={isLoading} className="w-full">
-                                    {isLoading ? "Generating..." : "Generate Speech"}
+                                <Button
+                                    onClick={handleGenerateSpeech}
+                                    disabled={isLoading}
+                                    className={`w-full ${isLoading ? 'bg-gray-400' : 'bg-blue-500'} text-white hover:bg-blue-700 transition`}
+                                >
+                                    {isLoading ? (
+                                        <>
+                                            Generating...
+                                            {/* Optionally add a spinner here */}
+                                        </>
+                                    ) : (
+                                        "Generate Speech"
+                                    )}
                                 </Button>
 
                                 {/* Audio Player */}
