@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
-import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -14,14 +14,14 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { ModeToggle } from './ModeToggle';
+import { ModeToggle } from "./ModeToggle";
 
 const navItems = [
-  { name: 'Home', path: '/' },
-  { name: 'Service', path: '/services' },
-  { name: 'Project', path: '/project' },
-  { name: 'About', path: '/about' },
-  { name: 'Contact', path: '/contact' },
+  { name: "Home", path: "/" },
+  { name: "Service", path: "/services" },
+  { name: "Project", path: "/project" },
+  { name: "About", path: "/about" },
+  { name: "Contact", path: "/contact" },
 ];
 
 export default function Navbar() {
@@ -42,7 +42,9 @@ export default function Navbar() {
               alt="Logo"
               className="rounded-full aspect-square object-cover"
             />
-            <span className="text-xl font-bold text-gray-800 dark:text-white">NakTech</span>
+            <span className="text-xl font-bold text-gray-800 dark:text-white">
+              NakTech
+            </span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-4">
@@ -54,7 +56,9 @@ export default function Navbar() {
                       <NavigationMenuLink
                         className={cn(
                           "block select-none p-3 leading-none no-underline transition-colors hover:bg-accent hover:text-accent-foreground",
-                          pathname === item.path ? "bg-blue-500 text-white" : "text-gray-800 dark:text-white"
+                          pathname === item.path
+                            ? "bg-blue-500 text-white"
+                            : "text-gray-800 dark:text-white",
                         )}
                       >
                         {item.name}
@@ -65,19 +69,28 @@ export default function Navbar() {
               </NavigationMenuList>
             </NavigationMenu>
 
-            {/* Toggle for light/dark mode */}
-            <ModeToggle />
+            <div className="block">
+              <ModeToggle />
+            </div>
           </div>
 
-          {/* Hamburger Menu Button */}
-          <Button
-            variant="ghost"
-            className="md:hidden"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </Button>
+          <div className="flex items-center gap-2">
+            <div className="block md:hidden">
+              <ModeToggle />
+            </div>
+            <Button
+              variant="ghost"
+              className="md:hidden"
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+            >
+              {isOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </Button>
+          </div>
         </div>
       </div>
 
@@ -98,7 +111,9 @@ export default function Navbar() {
                   href={item.path}
                   className={cn(
                     "block px-3 py-2 rounded-md text-sm font-medium",
-                    pathname === item.path ? "bg-blue-500 text-white" : "text-gray-800 dark:text-white hover:bg-blue-100"
+                    pathname === item.path
+                      ? "bg-blue-500 text-white"
+                      : "text-gray-800 dark:text-white hover:bg-blue-100",
                   )}
                   onClick={() => setIsOpen(false)} // Close menu on click
                 >
