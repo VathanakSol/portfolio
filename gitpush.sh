@@ -74,7 +74,7 @@ fi
 
 # Push changes to the remote repository in the background with loading animation
 {
-    git push origin master
+    git push origin main
 } &
 
 # Get the process ID of the last command (git push)
