@@ -2,14 +2,14 @@
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Code, GitBranch, Play, Check, Cloud } from "lucide-react";
+import { Award, Star, Shield, Heart, ThumbsUp } from "lucide-react";
 
 const stages = [
-  { name: "Code", icon: Code, color: "bg-blue-500" },
-  { name: "Build", icon: GitBranch, color: "bg-green-500" },
-  { name: "Test", icon: Play, color: "bg-yellow-500" },
-  { name: "Deploy", icon: Cloud, color: "bg-purple-500" },
-  { name: "Monitor", icon: Check, color: "bg-red-500" },
+  { name: "Worth", icon: Award, color: "bg-blue-500" },       
+  { name: "Quality", icon: Star, color: "bg-green-500" },      
+  { name: "Strength", icon: Shield, color: "bg-yellow-500" },  
+  { name: "Be Nice", icon: Heart, color: "bg-purple-500" },     
+  { name: "Do Your Best", icon: ThumbsUp, color: "bg-red-500" } 
 ];
 
 const DevOpsPipeline: React.FC = () => {
@@ -33,7 +33,7 @@ const DevOpsPipeline: React.FC = () => {
   return (
     <div className="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-4 max-w-2xl mx-auto w-full md:w-auto">
       <h2 className="text-xl font-bold mb-3 text-gray-800 dark:text-gray-200">
-        DevOps Pipeline
+        Boost Your Confidence
       </h2>
       <div className="flex flex-wrap md:flex-nowrap justify-between items-center gap-2 md:gap-1 mb-4">
         {stages.map((stage, index) => (

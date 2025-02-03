@@ -31,34 +31,39 @@ export default function Navbar() {
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
   return (
-    <nav className="sticky top-0 z-40 w-full backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <nav className="sticky top-0 z-50 w-full bg-white dark:bg-gray-900 shadow-md backdrop-blur-lg bg-opacity-90 dark:bg-opacity-90">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
+
+          {/* Profile Logo */}
           <Link href="/" aria-label="Logo" className="flex items-center gap-4">
             <Image
               src="/assets/profile.jpg"
               width={40}
               height={40}
               alt="Logo"
-              className="rounded-full aspect-square object-cover"
+              className="rounded-full aspect-square object-cover border-2 border-gray-300 dark:border-gray-600" // Add border classes
             />
-            <span className="text-xl font-bold text-gray-800 dark:text-white">
+            <span
+              className="text-xl font-bold hover:text-cyan-400 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 transition-all ease-in-out duration-300 dark:bg-gradient-to-r dark:from-purple-300 dark:to-cyan-300 dark:hover:text-white"
+            >
               NakTech
             </span>
           </Link>
 
+
           <div className="hidden md:flex items-center space-x-4">
             <NavigationMenu>
-              <NavigationMenuList>
+              <NavigationMenuList className="flex space-x-4 p-2 rounded-lg">
                 {navItems.map((item) => (
                   <NavigationMenuItem key={item.name}>
                     <Link href={item.path} legacyBehavior passHref>
                       <NavigationMenuLink
                         className={cn(
-                          "block select-none p-3 leading-none no-underline transition-colors hover:bg-accent hover:text-accent-foreground",
+                          "block select-none px-4 py-2 rounded-xl text-sm font-medium transition-all ease-in-out duration-300",
                           pathname === item.path
-                            ? "bg-blue-500 text-white"
-                            : "text-gray-800 dark:text-white",
+                            ? "bg-gradient-to-r from-purple-500 to-cyan-500 text-white shadow-lg"
+                            : "text-gray-800 dark:text-white hover:bg-gradient-to-r hover:from-purple-500 hover:to-cyan-500 hover:text-white dark:hover:bg-gradient-to-r dark:hover:from-purple-300 dark:hover:to-cyan-300 dark:hover:text-white"
                         )}
                       >
                         {item.name}
@@ -113,7 +118,7 @@ export default function Navbar() {
                     "block px-3 py-2 rounded-md text-sm font-medium",
                     pathname === item.path
                       ? "bg-blue-500 text-white"
-                      : "text-gray-800 dark:text-white hover:bg-blue-100",
+                      : "text-gray-800 dark:text-white hover:bg-blue-100 dark:hover:bg-gray-700",
                   )}
                   onClick={() => setIsOpen(false)} // Close menu on click
                 >

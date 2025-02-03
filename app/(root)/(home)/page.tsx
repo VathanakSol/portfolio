@@ -2,7 +2,7 @@ import Header from '@/components/Header';
 
 import Projects from '@/components/Project';
 import ScrollProgressBar from '@/components/ScrollProgressBar';
-import YoutubeSection from '@/components/YoutubeSection';
+// import YoutubeSection from '@/components/YoutubeSection';
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -74,7 +74,7 @@ export default function HomePage() {
       <ScrollProgressBar />
       <main>
           <Header />
-          <YoutubeSection />
+          {/* <YoutubeSection /> */}
           <Projects />
       </main>
     </>

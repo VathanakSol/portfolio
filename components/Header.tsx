@@ -61,16 +61,18 @@ const Header: React.FC = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
               onClick={handleEasterEggClick}
-              className="relative"
+              className="relative cursor-pointer"
             >
-              <Image
-                src="/assets/profile.jpg"
-                alt="Vathanak Sol"
-                width={200}
-                height={200}
-                className="mx-auto md:mx-0 rounded-full border-4 border-gray-100 shadow-lg"
-              />
-
+              
+                <Image
+                  src="/assets/profile.jpg"
+                  alt="Vathanak Sol"
+                  width={200}
+                  height={200}
+                  className="mx-auto md:mx-0 rounded-full border-4 border-gray-100 shadow-lg"
+                />
+              
+              {/* Easter Egg Notification */}
               {easterEggTriggered && (
                 <span className="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
                   🎉 Easter Egg Found!

@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
-import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import VisitorCounter from "@/components/VisitorCounter";
+// import VisitorCounter from "@/components/VisitorCounter";
 import { Analytics } from "@vercel/analytics/react"
 import { Toaster } from "@/components/ui/use-toast";
-import ElevenLabsTTS from "@/components/ElevenLabsTTS";
+// import ElevenLabsTTS from "@/components/ElevenLabsTTS";
 import BackToTopButton from "@/components/BackToTopButton";
+import { Poppins } from 'next/font/google';
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-poppins',
+});
 
 export const metadata: Metadata = {
   title: "NakTech",
@@ -41,7 +45,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={poppins.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -50,12 +54,12 @@ export default async function RootLayout({
         >       
             
             <NavBar />
-            <VisitorCounter />
+            {/* <VisitorCounter /> */}
             {children}
             <Analytics />
             <Toaster />
             <Footer />
-            <ElevenLabsTTS />
+            {/* <ElevenLabsTTS /> */}
             <BackToTopButton />
         </ThemeProvider>
 
