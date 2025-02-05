@@ -4,7 +4,7 @@ pipeline {
 
     environment {
         // Define environment variables
-        DOCKER_REGISTRY = 'vathanaksol'
+        DOCKER_REGISTRY = 'docker.io/vathanaksol'
         APP_NAME = 'my-portfolio'
         DOCKER_CREDENTIALS = credentials('naktech')
     }
@@ -42,16 +42,18 @@ pipeline {
         stage('Push to Registry') {
             steps {
                 script {
-                    // Login to Docker registry
-                    sh """
-                        echo ${DOCKER_CREDENTIALS_PSW} | docker login ${DOCKER_REGISTRY} -u ${DOCKER_CREDENTIALS_USR} --password-stdin
-                    """
-                    
-                    // Push Docker image
-                    sh """
-                        docker push ${DOCKER_REGISTRY}/${APP_NAME}:${IMAGE_TAG}
-                        docker push ${DOCKER_REGISTRY}/${APP_NAME}:latest
-                    """
+                    withCredentials([usernamePassword(credentialsId: 'naktech', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+                        // Login to Docker registry
+                        sh """
+                            echo \$DOCKER_PASSWORD | docker login docker.io -u \$DOCKER_USERNAME --password-stdin
+                        """
+                        
+                        // Push Docker image
+                        sh """
+                            docker push ${DOCKER_REGISTRY}/${APP_NAME}:${IMAGE_TAG}
+                            docker push ${DOCKER_REGISTRY}/${APP_NAME}:latest
+                        """
+                    }
                 }
             }
         }
