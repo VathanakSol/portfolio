@@ -6,11 +6,19 @@ pipeline {
         // Define environment variables
         DOCKER_REGISTRY = 'vathanaksol'
         APP_NAME = 'portfolio'
-        IMAGE_TAG = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
         DOCKER_CREDENTIALS = credentials('docker-registry-credentials')
     }
 
     stages {
+	stage('Set Image Tag') {
+            steps {
+                script {
+                    // Compute the IMAGE_TAG from the Git commit hash.
+                    env.IMAGE_TAG = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
+                }
+            }
+        }
+
         stage('Checkout') {
             steps {
                 // Clean workspace and checkout code
