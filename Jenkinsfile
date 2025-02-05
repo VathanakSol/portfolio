@@ -5,8 +5,8 @@ pipeline {
     environment {
         // Define environment variables
         DOCKER_REGISTRY = 'vathanaksol'
-        APP_NAME = 'portfolio'
-        DOCKER_CREDENTIALS = credentials('docker-registry-credentials')
+        APP_NAME = 'my-portfolio'
+        DOCKER_CREDENTIALS = credentials('naktech')
     }
 
     stages {
