@@ -2,6 +2,10 @@
 pipeline {
     agent any
 
+    triggers {
+        pollSCM('* * * * *')  // Checks every minute for changes
+    }
+
     environment {
         // Define environment variables
         DOCKER_REGISTRY = 'docker.io/vathanaksol'
