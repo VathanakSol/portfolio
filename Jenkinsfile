@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     triggers {
-        pollSCM('* * * * *')  // Checks every minute for changes
+        githubPush()
     }
 
     environment {
