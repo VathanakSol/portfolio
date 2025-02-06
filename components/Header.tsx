@@ -8,26 +8,26 @@ import React, { useEffect, useState } from "react";
 import DevOpsPipeline from "./DevOpsPipeline";
 import TypingHeading from "./TypingHeading";
 
-const GoogleIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z" />
-  </svg>
-);
+// const GoogleIcon = () => (
+//   <svg
+//     xmlns="http://www.w3.org/2000/svg"
+//     width="24"
+//     height="24"
+//     viewBox="0 0 24 24"
+//     fill="none"
+//     stroke="currentColor"
+//     strokeWidth="2"
+//     strokeLinecap="round"
+//     strokeLinejoin="round"
+//   >
+//     <path d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z" />
+//   </svg>
+// );
 
 const socialLinks = [
   { name: "GitHub", icon: Github, url: "https://github.com/VathanakSol" },
   { name: "Website", icon: Globe, url: "https://naktech.pro" },
-  { name: "Google", icon: GoogleIcon, url: "https://g.dev/naktech" },
+  // { name: "Google", icon: GoogleIcon, url: "https://g.dev/naktech" },
 ];
 
 const Header: React.FC = () => {
@@ -81,7 +81,7 @@ const Header: React.FC = () => {
             </motion.div>
 
             <motion.h1
-              className="mt-6 text-4xl font-extrabold text-blue-700 dark:text-blue-300 sm:text-5xl sm:tracking-tight lg:text-6xl w-full"
+              className="text-6xl font-bold hover:text-cyan-400 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 transition-all ease-in-out duration-300 dark:bg-gradient-to-r dark:from-purple-300 dark:to-cyan-300 dark:hover:text-white"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -91,8 +91,8 @@ const Header: React.FC = () => {
 
             <TypingHeading
               texts={[
-                { text: "DevSecOps Engineer" },
-                { text: "Cloud Architect" },
+                { text: "DevOps Engineer" },
+                { text: "Cloud Engineer" },
                 {
                   text: "Full Stack Developer",
                   style: { color: "rgb(59,130,246)" },

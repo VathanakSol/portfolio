@@ -2,7 +2,7 @@
 const nextConfig = {
     output: "standalone",
     images: {
-        domains: ['img.youtube.com','avatars.githubusercontent.com'],
+        domains: ['img.youtube.com','avatars.githubusercontent.com','7zg3rv0nfdklwx5q.public.blob.vercel-storage.com'],
     },
     // experimental: {
     //     serverActions: true,
