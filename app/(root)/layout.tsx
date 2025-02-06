@@ -20,6 +20,10 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "NakTech",
   description: "NakTech Portfolio",
+  icons: {
+    icon: '/favicon.ico',           // Standard favicon
+    shortcut: '/favicon.ico',       // Shortcut icon for quick access
+  },
   openGraph: {
     title: "NakTech",
     description: "Portfolio Website",

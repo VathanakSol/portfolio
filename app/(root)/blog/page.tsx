@@ -2,7 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Card, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
 import { BlogPost, blogPosts } from "@/types/blogData"
-import { FaEthereum } from "react-icons/fa"
+import { FaBookmark, FaEthereum } from "react-icons/fa"
 
 export default function BlogPage() {
     return (
@@ -36,14 +36,20 @@ export default function BlogPage() {
                                         {post.excerpt}
                                     </div>
                                 </CardDescription>
-                                <div className="mt-auto">
-                                    <time dateTime={post.date} className="block text-sm text-gray-500 mb-4">
-                                        {new Date(post.date).toLocaleDateString('en-US', {
-                                            year: 'numeric',
-                                            month: 'long',
-                                            day: 'numeric'
-                                        })}
-                                    </time>
+                                <div className="mt-4">
+                                    <div className="flex justify-between items-center text-sm text-gray-500 mb-4">
+                                        <time dateTime={post.date}>
+                                            {new Date(post.date).toLocaleDateString('en-US', {
+                                                year: 'numeric',
+                                                month: 'long',
+                                                day: 'numeric'
+                                            })}
+                                        </time>
+                                        <div className="flex items-center space-x-2 text-gray-500">
+                                            <FaBookmark />
+                                            <p>{post.readTime}</p>
+                                        </div>
+                                    </div>
                                     <div className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-2 rounded-lg font-medium text-center group-hover:opacity-90 transition-all duration-300">
                                         Read More
                                     </div>
