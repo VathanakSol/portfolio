@@ -15,16 +15,16 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <div className="container mx-auto px-4 py-4">
+    <div className="container mx-auto px-4 py-8 min-h-screen dark:from-gray-900 dark:to-gray-800">
       <motion.h1
-        className="text-4xl font-bold mb-8 text-center text-blue-500"
+        className="text-4xl py-6 text-center font-bold hover:text-cyan-400 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 transition-all ease-in-out duration-300 dark:bg-gradient-to-r dark:from-purple-300 dark:to-cyan-300 dark:hover:text-white"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
         Our Services
       </motion.h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {services.map((service, index) => (
           <motion.div
             key={service.id}
@@ -32,21 +32,23 @@ export default function ServicesPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <Card>
+            <Card className="bg-gradient-to-tl from-teal-500 to-blue-600 rounded-lg shadow-xl transform transition-transform hover:scale-105 hover:shadow-2xl dark:from-teal-700 dark:to-blue-800">
               <CardHeader>
                 <div className="flex items-center space-x-4">
-                  <div className="bg-primary rounded-full p-3">
-                    <service.icon className="h-6 w-6 text-primary-foreground" />
+                  <div className="bg-gradient-to-tl from-teal-400 to-blue-500 p-3 rounded-full">
+                    <service.icon className="h-6 w-6 text-white" />
                   </div>
-                  <CardTitle>{service.title}</CardTitle>
+                  <CardTitle className="text-white text-xl font-semibold dark:text-gray-100">{service.title}</CardTitle>
                 </div>
               </CardHeader>
-              <CardContent>
-                <CardDescription>{service.description}</CardDescription>
+              <CardContent className="bg-gradient-to-br from-gray-800 to-gray-900 p-4 rounded-lg dark:bg-gradient-to-br dark:from-gray-700 dark:to-gray-800">
+                <CardDescription className="text-white text-lg dark:text-gray-300">{service.description}</CardDescription>
               </CardContent>
-              <CardFooter>
+              <CardFooter className="bg-gray-900 p-4 rounded-b-lg dark:bg-gray-700">
                 <Link href={`/services/${service.id}`} passHref>
-                  <Button>Learn More</Button>
+                  <Button className="w-full bg-teal-600 text-white hover:bg-teal-700 transition duration-300 ease-in-out dark:bg-teal-700 dark:hover:bg-teal-600">
+                    Learn More
+                  </Button>
                 </Link>
               </CardFooter>
             </Card>

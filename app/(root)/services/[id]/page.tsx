@@ -11,11 +11,11 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Badge } from "@/components/ui/badge"
 
 const services = [
-  { 
-    id: 1, 
-    title: 'Web Development', 
-    description: 'Building dynamic and responsive websites using modern technologies with best user experience.', 
-    icon: Code, 
+  {
+    id: 1,
+    title: 'Web Development',
+    description: 'Building dynamic and responsive websites using modern technologies with best user experience.',
+    icon: Code,
     longDescription: 'Our web development service focuses on creating fast, responsive, and user-friendly websites. We use the latest technologies like React, Next.js, and Node.js to build scalable and maintainable web applications.',
     features: [
       'Custom web application development',
@@ -35,11 +35,11 @@ const services = [
       { title: 'Maintenance and Support', description: 'We provide ongoing support and maintenance to keep your application running smoothly.' }
     ]
   },
-  { 
-    id: 2, 
-    title: 'UI/UX Design', 
-    description: 'Designing user interfaces and experiences that are both functional and aesthetically pleasing.', 
-    icon: Palette, 
+  {
+    id: 2,
+    title: 'UI/UX Design',
+    description: 'Designing user interfaces and experiences that are both functional and aesthetically pleasing.',
+    icon: Palette,
     longDescription: 'Our UI/UX design service is all about creating intuitive and visually appealing interfaces. We focus on user-centered design principles to ensure that your product not only looks great but also provides an excellent user experience.',
     features: [
       'User research and analysis',
@@ -59,11 +59,11 @@ const services = [
       { title: 'User Testing', description: 'We conduct usability tests to ensure the design meets user needs and expectations.' }
     ]
   },
-  { 
-    id: 3, 
-    title: 'Spring Development', 
-    description: 'Developing robust applications using the Spring framework for seamless performance.', 
-    icon: Server, 
+  {
+    id: 3,
+    title: 'Spring Development',
+    description: 'Developing robust applications using the Spring framework for seamless performance.',
+    icon: Server,
     longDescription: 'With our Spring development service, we build robust and scalable backend systems. We leverage the power of the Spring framework to create high-performance, secure, and easily maintainable applications.',
     features: [
       'Custom Spring Boot applications',
@@ -83,11 +83,11 @@ const services = [
       { title: 'Monitoring and Maintenance', description: 'We set up monitoring tools and provide ongoing maintenance and support.' }
     ]
   },
-  { 
-    id: 4, 
-    title: 'DevOps Engineering', 
-    description: 'Streamlining development and operations for faster delivery and improved collaboration.', 
-    icon: GitBranch, 
+  {
+    id: 4,
+    title: 'DevOps Engineering',
+    description: 'Streamlining development and operations for faster delivery and improved collaboration.',
+    icon: GitBranch,
     longDescription: 'Our DevOps engineering service focuses on improving your development and deployment processes. We implement CI/CD pipelines, containerization, and infrastructure as code to increase efficiency and reduce time-to-market.',
     features: [
       'CI/CD pipeline implementation',
@@ -120,9 +120,9 @@ export default function ServicePage() {
   }
 
   return (
-    <div className="container mx-auto px-4 pb-10">
+    <div className="container mx-auto px-4 pb-10 dark:from-gray-900 dark:to-black bg-white dark:bg-gray-900">
       <Link href="/services" passHref>
-        <Button variant="ghost" className="mb-6">
+        <Button variant="ghost" className="py-10 text-black hover:text-blue-400 dark:text-white dark:hover:text-blue-300 transition-colors">
           <ArrowLeft className="mr-2 h-4 w-4" /> Back to Services
         </Button>
       </Link>
@@ -131,41 +131,41 @@ export default function ServicePage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <Card className="mb-8">
+        <Card className="mb-8 border border-transparent rounded-lg shadow-lg dark:bg-gray-800 dark:text-gray-100 bg-white">
           <CardHeader>
             <div className="flex items-center space-x-4">
-              <div className="bg-primary rounded-full p-3">
-                <service.icon className="h-8 w-8 text-primary-foreground" />
+              <div className="bg-gradient-to-tl from-teal-500 to-blue-600 rounded-full p-3">
+                <service.icon className="h-8 w-8 text-white" />
               </div>
               <div>
-                <CardTitle className="text-2xl text-blue-500">{service.title}</CardTitle>
-                <CardDescription className="text-lg mt-2">{service.description}</CardDescription>
+                <CardTitle className="text-2xl text-gradient-to-r from-teal-400 to-blue-500">{service.title}</CardTitle>
+                <CardDescription className="text-lg text-black dark:text-gray-300">{service.description}</CardDescription>
               </div>
             </div>
           </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground mb-6">{service.longDescription}</p>
-            <h3 className="text-xl font-semibold mb-4">Key Features</h3>
+          <CardContent className="py-6 text-black dark:bg-gray-700 dark:text-gray-200">
+            <p className="mb-6">{service.longDescription}</p>
+            <h3 className="text-xl font-semibold mb-4 text-teal-500">Key Features</h3>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {service.features.map((feature, index) => (
-                <motion.li 
+                <motion.li
                   key={index}
-                  className="flex items-start space-x-2"
+                  className="flex items-start space-x-2 hover:scale-105 transition-transform"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <Check className="h-5 w-5 text-green-500 mt-1" />
-                  <span>{feature}</span>
+                  <Check className="h-5 w-5 text-teal-500 mt-1" />
+                  <span className="text-black dark:text-gray-200">{feature}</span>
                 </motion.li>
               ))}
             </ul>
           </CardContent>
         </Card>
 
-        <Card className="mb-8">
+        <Card className="mb-8 bg-gradient-to-r from-purple-700 to-pink-600 border border-transparent rounded-lg shadow-lg dark:bg-gradient-to-tl dark:from-indigo-600 dark:to-purple-900">
           <CardHeader>
-            <CardTitle className="text-2xl">Technologies We Use</CardTitle>
+            <CardTitle className="text-2xl text-white">Technologies We Use</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="flex flex-wrap gap-2">
@@ -174,24 +174,27 @@ export default function ServicePage() {
                   key={index}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }} 
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
                 >
-                  <Badge variant="secondary" className="bg-blue-500 text-white hover:text-blue-500 hover:cursor-pointer hover:border-blue-500">{tech}</Badge>
+                  <Badge variant="secondary" className="bg-teal-600 text-white hover:text-teal-500 hover:border-teal-500 hover:cursor-pointer dark:bg-teal-700 dark:hover:bg-teal-600">
+                    {tech}
+                  </Badge>
                 </motion.div>
               ))}
             </div>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="bg-gradient-to-tl from-indigo-600 to-purple-800 border border-transparent rounded-lg shadow-lg dark:bg-gradient-to-tl dark:from-gray-800 dark:to-gray-900">
           <CardHeader>
-            <CardTitle className="text-2xl">Our Process</CardTitle>
+            <CardTitle className="text-2xl text-white">Our Process</CardTitle>
           </CardHeader>
           <CardContent>
             <Accordion type="single" collapsible className="w-full">
               {service.process.map((step, index) => (
                 <AccordionItem value={`item-${index}`} key={index}>
                   <AccordionTrigger
+                    className="text-xl text-white hover:text-yellow-400 transition-colors dark:text-gray-200 dark:hover:text-yellow-300"
                     onClick={() => setActiveAccordion(activeAccordion === `item-${index}` ? null : `item-${index}`)}
                   >
                     {step.title}
@@ -204,7 +207,7 @@ export default function ServicePage() {
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <AccordionContent>
+                        <AccordionContent className="bg-opacity-20 bg-gray-900 text-white p-4 rounded-lg dark:bg-opacity-40 dark:bg-gray-800">
                           {step.description}
                         </AccordionContent>
                       </motion.div>
@@ -212,10 +215,34 @@ export default function ServicePage() {
                   </AnimatePresence>
                 </AccordionItem>
               ))}
+              {/* Additional Process Step */}
+              <AccordionItem value="item-new">
+                <AccordionTrigger
+                  className="text-xl text-white hover:text-yellow-400 transition-colors dark:text-gray-200 dark:hover:text-yellow-300"
+                  onClick={() => setActiveAccordion(activeAccordion === 'item-new' ? null : 'item-new')}
+                >
+                  Continuous Improvement
+                </AccordionTrigger>
+                <AnimatePresence>
+                  {activeAccordion === 'item-new' && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <AccordionContent className="bg-opacity-20 bg-gray-900 text-white p-4 rounded-lg dark:bg-opacity-40 dark:bg-gray-800">
+                        We continuously monitor and evaluate the project to implement iterative improvements, ensuring long-term success.
+                      </AccordionContent>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </AccordionItem>
             </Accordion>
           </CardContent>
         </Card>
       </motion.div>
     </div>
+
   )
 }

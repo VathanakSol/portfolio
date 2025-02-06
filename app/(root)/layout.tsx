@@ -9,6 +9,7 @@ import { Toaster } from "@/components/ui/use-toast";
 // import ElevenLabsTTS from "@/components/ElevenLabsTTS";
 import BackToTopButton from "@/components/BackToTopButton";
 import { Poppins } from 'next/font/google';
+import ScrollProgressBar from "@/components/ScrollProgressBar";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -55,6 +56,7 @@ export default async function RootLayout({
             
             <NavBar />
             {/* <VisitorCounter /> */}
+            <ScrollProgressBar />
             {children}
             <Analytics />
             <Toaster />

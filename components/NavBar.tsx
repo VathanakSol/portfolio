@@ -19,6 +19,7 @@ import { ModeToggle } from "./ModeToggle";
 const navItems = [
   { name: "Home", path: "/" },
   { name: "Service", path: "/services" },
+  { name: "Blog", path: "/blog"},
   { name: "Project", path: "/project" },
   { name: "About", path: "/about" },
   { name: "Contact", path: "/contact" },
