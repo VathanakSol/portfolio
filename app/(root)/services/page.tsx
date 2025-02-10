@@ -15,7 +15,7 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <div className="container mx-auto px-4 py-8 min-h-screen dark:from-gray-900 dark:to-gray-800">
+    <div className="container mx-auto px-4 py-8 min-h-screen dark:from-gray-900 dark:to-gray-800 dark:bg-gray-800">
       <motion.h1
         className="text-4xl py-6 text-center font-bold hover:text-cyan-400 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 transition-all ease-in-out duration-300 dark:bg-gradient-to-r dark:from-purple-300 dark:to-cyan-300 dark:hover:text-white"
         initial={{ opacity: 0, y: -20 }}

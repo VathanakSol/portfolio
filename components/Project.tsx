@@ -94,7 +94,7 @@ export default function ProjectsAndServices() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
+    <div className="max-w-6xl mx-auto px-4 py-8 dark:bg-gray-800">
       <motion.h1
         className="text-4xl py-4 font-bold hover:text-cyan-400 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 transition-all ease-in-out duration-300 dark:bg-gradient-to-r dark:from-purple-300 dark:to-cyan-300 dark:hover:text-white text-center"
         initial={{ opacity: 0, y: -20 }}
@@ -105,13 +105,13 @@ export default function ProjectsAndServices() {
       </motion.h1>
 
       <Tabs defaultValue="projects" className="my-2">
-        <TabsList className="grid w-full grid-cols-2 bg-gray-100 dark:bg-gray-900 p-1 rounded-lg border border-gray-200 dark:border-gray-800">
+        <TabsList className="grid w-full grid-cols-2 bg-gray-100 dark:bg-gray-800 p-1 rounded-lg border border-gray-200 dark:border-gray-700">
           <TabsTrigger
             value="projects"
             onClick={() => setActiveTab('projects')}
             className={`${activeTab === 'projects'
                 ? 'bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-cyan-500 dark:to-blue-500 text-white shadow-md dark:shadow-cyan-500/30'
-                : 'bg-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800'
+                : 'bg-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700'
               } rounded-lg transition-all duration-300`}
           >
             Projects
@@ -121,7 +121,7 @@ export default function ProjectsAndServices() {
             onClick={() => setActiveTab('services')}
             className={`${activeTab === 'services'
                 ? 'bg-gradient-to-r from-purple-500 to-pink-500 dark:from-pink-500 dark:to-purple-500 text-white shadow-md dark:shadow-purple-500/30'
-                : 'bg-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800'
+                : 'bg-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700'
               } rounded-lg transition-all duration-300`}
           >
             Services
@@ -142,7 +142,7 @@ export default function ProjectsAndServices() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <Card className="h-full flex flex-col bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg hover:shadow-lg hover:shadow-blue-100 dark:hover:shadow-cyan-500/10 transition-all duration-300">
+                  <Card className="h-full flex flex-col bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-lg hover:shadow-blue-100 dark:hover:shadow-cyan-500/10 transition-all duration-300">
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -164,7 +164,7 @@ export default function ProjectsAndServices() {
                           <Badge
                             key={i}
                             variant="outline"
-                            className="bg-gray-100 dark:bg-gray-800 text-cyan-600 dark:text-cyan-400 border-gray-300 dark:border-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-900/20"
+                            className="bg-gray-100 dark:bg-gray-700 text-cyan-600 dark:text-cyan-400 border-gray-300 dark:border-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-900/20"
                           >
                             {tech}
                           </Badge>
@@ -199,7 +199,7 @@ export default function ProjectsAndServices() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <Card className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg hover:shadow-lg hover:shadow-purple-100 dark:hover:shadow-purple-500/10 transition-all duration-300">
+                  <Card className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-lg hover:shadow-purple-100 dark:hover:shadow-purple-500/10 transition-all duration-300">
                     <CardHeader>
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-4">
@@ -214,7 +214,7 @@ export default function ProjectsAndServices() {
                           variant="ghost"
                           size="sm"
                           onClick={() => toggleService(service.id)}
-                          className="text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+                          className="text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
                         >
                           {expandedService === service.id ? (
                             <ChevronUp className="h-4 w-4" />

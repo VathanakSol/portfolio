@@ -46,7 +46,7 @@ export default function ContactPage() {
   return (
     <div className="flex items-center justify-center h-screen w-full">
       <div className="container px-4 py-8">
-        <h1 className="text-3xl font-bold mb-6 text-center">Contact Me</h1>
+        <h1 className="text-4xl text-center font-bold hover:text-cyan-400 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 transition-all ease-in-out duration-300 dark:bg-gradient-to-r dark:from-purple-300 dark:to-cyan-300 dark:hover:text-white">Contact Me</h1>
         <form action={handleSubmit} className="space-y-6 max-w-md mx-auto">
           <div>
             <Label htmlFor="name">Name</Label>

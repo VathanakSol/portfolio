@@ -113,7 +113,7 @@ export default function BlogPost({ params }: Props ) {
                                             Web3 technologies are revolutionizing how we think about digital ownership and interaction.
                                         </p>
                                     </div>
-                                    <p className="text-gray-700 dark:text-gray-300">
+                                    <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
                                         {post.content}
                                     </p>
                                 </div>
