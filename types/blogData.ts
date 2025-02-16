@@ -19,16 +19,16 @@ export const blogPosts: BlogPost[] = [
     readTime: "2 min read",
     coverImage: "https://7zg3rv0nfdklwx5q.public.blob.vercel-storage.com/naktech/blockchain-3qO6rmC6pyp3N0qdFiqmvFUkmRTawa.jpg",
   },
-  // {
-  //   id: "smart-contracts",
-  //   title: "The Power of Smart Contracts",
-  //   excerpt: "Exploring how smart contracts are revolutionizing agreements and transactions.",
-  //   content:
-  //     "Smart contracts are self-executing contracts with the terms of the agreement directly written into code...",
-  //   date: "2023-06-15",
-  //   readTime: "3 min read",
-  //   coverImage: "/images/blockchain-basics.jpg",
-  // },
+  {
+    id: "introduction-to-cybersecurity",
+    title: "Introduction to Cybersecurity",
+    excerpt: "Understanding the fundamentals of cybersecurity and its importance in the digital age.",
+    content:
+      "In today's digital-first world, cybersecurity has become a cornerstone of trust and safety. It is the practice of protecting systems, networks, and data from digital threats such as malware, phishing, and ransomware. With the increasing reliance on technology, the importance of cybersecurity cannot be overstated. From safeguarding personal information to securing critical infrastructure, it ensures the confidentiality, integrity, and availability of data. Cybersecurity is not just about technology; it’s about creating a culture of awareness and proactive defense. By adopting best practices like using strong passwords, enabling multi-factor authentication, and staying updated on the latest threats, individuals and organizations can build a resilient defense against cyberattacks. As technology evolves, so do the threats, making it essential to stay informed and vigilant in the fight against cybercrime.",
+    date: "2025-02-16",
+    readTime: "5 min read",
+    coverImage: "https://7zg3rv0nfdklwx5q.public.blob.vercel-storage.com/naktech/cybersecurity-ARbGEYTpVvxC3FAv1s08AdBcQeRrJO.jpg",
+  }
   // {
   //   id: "defi-explained",
   //   title: "DeFi: Decentralized Finance Explained",
