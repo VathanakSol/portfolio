@@ -19,7 +19,7 @@ import { ModeToggle } from "./ModeToggle";
 const navItems = [
   { name: "Home", path: "/" },
   { name: "Service", path: "/services" },
-  { name: "Blog", path: "/blog"},
+  { name: "Blog", path: "/blog" },
   { name: "Project", path: "/project" },
   { name: "About", path: "/about" },
   { name: "Contact", path: "/contact" },
@@ -58,14 +58,14 @@ export default function Navbar() {
           {/* Profile Logo */}
           <Link href="/" aria-label="Logo" className="flex items-center gap-4">
             <Image
-              src="/assets/profile.jpg"
-              width={40}
-              height={40}
+              src="https://7zg3rv0nfdklwx5q.public.blob.vercel-storage.com/naktech/1-4ycJ0diY7b4x9cdQ6ipFqgenX1qSvr.png"
+              width={50}
+              height={50}
               alt="Logo"
-              className="rounded-full aspect-square object-cover border-2 border-gray-300 dark:border-gray-600"
+              className="aspect-square object-cover"
             />
             <span className="text-xl font-bold hover:text-cyan-400 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 transition-all ease-in-out duration-300 dark:bg-gradient-to-r dark:from-purple-300 dark:to-cyan-300 dark:hover:text-white">
-              NakTech
+              Nak-Tech
             </span>
           </Link>
 
@@ -82,7 +82,7 @@ export default function Navbar() {
                             "block select-none px-4 py-2 rounded-xl text-sm font-medium transition-all ease-in-out duration-300",
                             active
                               ? "bg-gradient-to-r from-purple-500 to-cyan-500 text-white shadow-lg"
-                              : "text-gray-800 dark:text-white hover:bg-gradient-to-r hover:from-purple-500 hover:to-cyan-500 hover:text-white dark:hover:bg-gradient-to-r dark:hover:from-purple-300 dark:hover:to-cyan-300 dark:hover:text-white"
+                              : "text-gray-800 dark:text-white hover:bg-gradient-to-r hover:from-purple-500 hover:to-cyan-500 hover:text-white dark:hover:bg-gradient-to-r dark:hover:from-purple-300 dark:hover:to-cyan-300 dark:hover:text-white",
                           )}
                         >
                           {item.name}
@@ -140,7 +140,7 @@ export default function Navbar() {
                       "block px-3 py-2 rounded-md text-sm font-medium",
                       active
                         ? "bg-blue-500 text-white"
-                        : "text-gray-800 dark:text-white hover:bg-blue-100 dark:hover:bg-gray-700"
+                        : "text-gray-800 dark:text-white hover:bg-blue-100 dark:hover:bg-gray-700",
                     )}
                     onClick={() => setIsOpen(false)}
                   >

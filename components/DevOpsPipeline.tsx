@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 import { Award, Star, Shield, Heart, ThumbsUp } from "lucide-react";
 
 const stages = [
-  { name: "Worth", icon: Award, color: "bg-blue-500" },       
-  { name: "Quality", icon: Star, color: "bg-green-500" },      
-  { name: "Strength", icon: Shield, color: "bg-yellow-500" },  
-  { name: "Be Nice", icon: Heart, color: "bg-purple-500" },     
-  { name: "Do Your Best", icon: ThumbsUp, color: "bg-red-500" } 
+  { name: "Worth", icon: Award, color: "bg-blue-500" },
+  { name: "Quality", icon: Star, color: "bg-green-500" },
+  { name: "Strength", icon: Shield, color: "bg-yellow-500" },
+  { name: "Be Nice", icon: Heart, color: "bg-purple-500" },
+  { name: "Do Your Best", icon: ThumbsUp, color: "bg-red-500" },
 ];
 
 const DevOpsPipeline: React.FC = () => {
@@ -31,8 +31,8 @@ const DevOpsPipeline: React.FC = () => {
   const progress = ((currentStage + 1) / stages.length) * 100;
 
   return (
-    <div className="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-4 max-w-2xl mx-auto w-full md:w-auto">
-      <h2 className="text-xl font-bold mb-3 text-gray-800 dark:text-gray-200">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg m-8 p-4 max-w-2xl mx-auto w-full md:w-auto">
+      <h2 className="text-4xl py-6 font-bold hover:text-cyan-400 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 transition-all ease-in-out duration-300 dark:bg-gradient-to-r dark:from-purple-300 dark:to-cyan-300 dark:hover:text-white text-center">
         Boost Your Confidence
       </h2>
       <div className="flex flex-wrap md:flex-nowrap justify-between items-center gap-2 md:gap-1 mb-4">
