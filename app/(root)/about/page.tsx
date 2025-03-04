@@ -1,7 +1,7 @@
-
-import Timeline from '@/components/Timeline'
-import { Metadata } from 'next/types';
-import React from 'react'
+import { AboutHero } from "@/components/about-hero";
+import Timeline from "@/components/Timeline";
+import { Metadata } from "next/types";
+import React from "react";
 
 export const metadata: Metadata = {
   title: "About",
@@ -11,7 +11,8 @@ export const metadata: Metadata = {
 export default function page() {
   return (
     <main>
-        <Timeline />    
+      <AboutHero />
+      <Timeline />
     </main>
-  )
+  );
 }

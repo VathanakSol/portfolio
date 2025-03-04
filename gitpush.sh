@@ -72,9 +72,21 @@ else
     exit 1
 fi
 
+# Get current branch name
+current_branch=$(git symbolic-ref --short HEAD)
+
+# Prompt for branch name with current branch as default
+echo -n "Enter branch name to push to (default: $current_branch): "
+read branch_name
+
+# Use current branch if no input provided
+if [ -z "$branch_name" ]; then
+    branch_name=$current_branch
+fi
+
 # Push changes to the remote repository in the background with loading animation
 {
-    git push origin main
+    git push origin "$branch_name"
 } &
 
 # Get the process ID of the last command (git push)
@@ -101,7 +113,7 @@ show_progress() {
         local percent=$((i * 100 / duration))
         # Calculate the number of filled segments in the bar
         local filled=$((i * bar_length / duration))
-        
+
         # Build the progress bar string
         local bar=""
         for ((j=0; j<filled; j++)); do
@@ -113,7 +125,7 @@ show_progress() {
 
         # Print the progress bar with percentage, carriage return to overwrite
         printf "\r[%-${bar_length}s] %d%%" "$bar" "$percent"
-        
+
         # Sleep for 1 second to simulate progress
         sleep 1
     done
