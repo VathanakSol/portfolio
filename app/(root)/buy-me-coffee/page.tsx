@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     url: "https://naktech.pro/buy-me-coffee",
     images: [
       {
-        url: "/assets/dollarqr.jpeg",
+        url: "/assets/dollarqr.jpeg", // Default image for sharing
         width: 1200,
         height: 630,
         alt: "Khmer QR - Buy Me a Coffee",
@@ -34,7 +34,15 @@ export const metadata: Metadata = {
     title: "Buy Me a Coffee - Support My Work",
     description:
       "Support my work by buying me a coffee! Choose between Khmer QR or Dollar QR to make a contribution.",
-    images: ["/assets/dollarqr.jpeg"],
+    images: ["/assets/dollarqr.jpeg"], // Default image for sharing
+  },
+  // Telegram-specific meta tags
+  other: {
+    "telegram:title": "Buy Me a Coffee - Support My Work",
+    "telegram:description":
+      "Support my work by buying me a coffee! Choose between Khmer QR or Dollar QR to make a contribution.",
+    "telegram:image": "/assets/dollarqr.jpeg", // Image for Telegram
+    "telegram:site": "@Vathanak23", // Replace with your Telegram handle (optional)
   },
 };
 
