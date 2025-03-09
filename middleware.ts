@@ -24,8 +24,8 @@ export default clerkMiddleware(async (auth, request) => {
     // If user is already authenticated and on sign-in page with a redirect_url parameter
     // redirect them to the specified URL after login
     return Response.redirect(new URL(redirectUrl, request.url));
-  } else if (isPublicRoute(request) && pathname !== "/") {
-    // If user is already authenticated and on a public page (except root) without redirect_url
+  } else if (pathname.startsWith("/sign-in")) {
+    // If user is already authenticated and on the sign-in page
     // redirect to default dashboard/home
     return Response.redirect(new URL("/learning", request.url));
   }
