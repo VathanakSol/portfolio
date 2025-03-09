@@ -15,6 +15,7 @@ export default clerkMiddleware(async (auth, request) => {
   // Save the redirect URL from query parameters if available
   const url = new URL(request.url);
   const redirectUrl = url.searchParams.get("redirect_url");
+  const pathname = url.pathname;
 
   if (!isPublicRoute(request)) {
     // Protect routes that are not public
@@ -23,11 +24,12 @@ export default clerkMiddleware(async (auth, request) => {
     // If user is already authenticated and on sign-in page with a redirect_url parameter
     // redirect them to the specified URL after login
     return Response.redirect(new URL(redirectUrl, request.url));
-  } else if (isPublicRoute(request)) {
-    // If user is already authenticated and on a public page without redirect_url
+  } else if (isPublicRoute(request) && pathname !== "/") {
+    // If user is already authenticated and on a public page (except root) without redirect_url
     // redirect to default dashboard/home
     return Response.redirect(new URL("/learning", request.url));
   }
+  // Allow authenticated users to access the root page
 });
 
 export const config = {

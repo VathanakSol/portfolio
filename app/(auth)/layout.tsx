@@ -1,5 +1,14 @@
+import "@/app/globals.css";
+
 import { Toaster } from "@/components/ui/use-toast";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
+});
 
 export const metadata = {
   title: "Next.js",
@@ -14,7 +23,7 @@ export default function AuthLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body>
+        <body className={poppins.className}>
           {children}
           <Toaster />
         </body>
