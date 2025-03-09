@@ -1,128 +1,346 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { useParams } from 'next/navigation'
-import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowLeft, Code, Palette, Server, GitBranch, Check } from 'lucide-react'
-import Link from 'next/link'
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Badge } from "@/components/ui/badge"
+import { useState } from "react";
+import { useParams } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ArrowLeft,
+  Code,
+  Palette,
+  Server,
+  GitBranch,
+  Check,
+  ShieldCheck,
+} from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Badge } from "@/components/ui/badge";
 
 const services = [
   {
     id: 1,
-    title: 'Web Development',
-    description: 'Building dynamic and responsive websites using modern technologies with best user experience.',
+    title: "Web Development",
+    description:
+      "Building dynamic and responsive websites using modern technologies with best user experience.",
     icon: Code,
-    longDescription: 'Our web development service focuses on creating fast, responsive, and user-friendly websites. We use the latest technologies like React, Next.js, and Node.js to build scalable and maintainable web applications.',
+    longDescription:
+      "Our web development service focuses on creating fast, responsive, and user-friendly websites. We use the latest technologies like React, Next.js, and Node.js to build scalable and maintainable web applications.",
     features: [
-      'Custom web application development',
-      'Responsive design for all devices',
-      'Progressive Web Apps (PWAs)',
-      'API development and integration',
-      'Performance optimization',
-      'SEO-friendly development'
+      "Custom web application development",
+      "Responsive design for all devices",
+      "Progressive Web Apps (PWAs)",
+      "API development and integration",
+      "Performance optimization",
+      "SEO-friendly development",
     ],
-    technologies: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Redux', 'Formik', 'NextAuth'],
+    technologies: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Redux",
+      "Formik",
+      "NextAuth",
+    ],
     process: [
-      { title: 'Requirements Gathering', description: 'We start by understanding your needs and project goals.' },
-      { title: 'Design and Prototyping', description: 'We create wireframes and interactive prototypes for your approval.' },
-      { title: 'Development', description: 'Our team builds your web application using modern technologies and best practices.' },
-      { title: 'Testing and QA', description: 'We thoroughly test the application to ensure it meets all requirements and quality standards.' },
-      { title: 'Deployment', description: 'We deploy your application to your chosen hosting environment.' },
-      { title: 'Maintenance and Support', description: 'We provide ongoing support and maintenance to keep your application running smoothly.' }
-    ]
+      {
+        title: "Requirements Gathering",
+        description: "We start by understanding your needs and project goals.",
+      },
+      {
+        title: "Design and Prototyping",
+        description:
+          "We create wireframes and interactive prototypes for your approval.",
+      },
+      {
+        title: "Development",
+        description:
+          "Our team builds your web application using modern technologies and best practices.",
+      },
+      {
+        title: "Testing and QA",
+        description:
+          "We thoroughly test the application to ensure it meets all requirements and quality standards.",
+      },
+      {
+        title: "Deployment",
+        description:
+          "We deploy your application to your chosen hosting environment.",
+      },
+      {
+        title: "Maintenance and Support",
+        description:
+          "We provide ongoing support and maintenance to keep your application running smoothly.",
+      },
+    ],
   },
   {
     id: 2,
-    title: 'UI/UX Design',
-    description: 'Designing user interfaces and experiences that are both functional and aesthetically pleasing.',
+    title: "UI/UX Design",
+    description:
+      "Designing user interfaces and experiences that are both functional and aesthetically pleasing.",
     icon: Palette,
-    longDescription: 'Our UI/UX design service is all about creating intuitive and visually appealing interfaces. We focus on user-centered design principles to ensure that your product not only looks great but also provides an excellent user experience.',
+    longDescription:
+      "Our UI/UX design service is all about creating intuitive and visually appealing interfaces. We focus on user-centered design principles to ensure that your product not only looks great but also provides an excellent user experience.",
     features: [
-      'User research and analysis',
-      'Information architecture',
-      'Wireframing and prototyping',
-      'Visual design',
-      'Interaction design',
-      'Usability testing'
+      "User research and analysis",
+      "Information architecture",
+      "Wireframing and prototyping",
+      "Visual design",
+      "Interaction design",
+      "Usability testing",
     ],
-    technologies: ['Figma', 'Adobe XD'],
+    technologies: ["Figma", "Adobe XD"],
     process: [
-      { title: 'Research', description: 'We conduct user research to understand your target audience and their needs.' },
-      { title: 'Information Architecture', description: 'We organize and structure your content for optimal user experience.' },
-      { title: 'Wireframing', description: 'We create low-fidelity wireframes to establish the basic structure of your interface.' },
-      { title: 'Visual Design', description: 'We develop a visually appealing design that aligns with your brand identity.' },
-      { title: 'Prototyping', description: 'We create interactive prototypes to test and refine the user experience.' },
-      { title: 'User Testing', description: 'We conduct usability tests to ensure the design meets user needs and expectations.' }
-    ]
+      {
+        title: "Research",
+        description:
+          "We conduct user research to understand your target audience and their needs.",
+      },
+      {
+        title: "Information Architecture",
+        description:
+          "We organize and structure your content for optimal user experience.",
+      },
+      {
+        title: "Wireframing",
+        description:
+          "We create low-fidelity wireframes to establish the basic structure of your interface.",
+      },
+      {
+        title: "Visual Design",
+        description:
+          "We develop a visually appealing design that aligns with your brand identity.",
+      },
+      {
+        title: "Prototyping",
+        description:
+          "We create interactive prototypes to test and refine the user experience.",
+      },
+      {
+        title: "User Testing",
+        description:
+          "We conduct usability tests to ensure the design meets user needs and expectations.",
+      },
+    ],
   },
   {
     id: 3,
-    title: 'Spring Development',
-    description: 'Developing robust applications using the Spring framework for seamless performance.',
+    title: "Spring Development",
+    description:
+      "Developing robust applications using the Spring framework for seamless performance.",
     icon: Server,
-    longDescription: 'With our Spring development service, we build robust and scalable backend systems. We leverage the power of the Spring framework to create high-performance, secure, and easily maintainable applications.',
+    longDescription:
+      "With our Spring development service, we build robust and scalable backend systems. We leverage the power of the Spring framework to create high-performance, secure, and easily maintainable applications.",
     features: [
-      'Custom Spring Boot applications',
-      'RESTful API development',
-      'Microservices architecture',
-      'Database integration and ORM',
-      'Security implementation',
-      'Testing and quality assurance'
+      "Custom Spring Boot applications",
+      "RESTful API development",
+      "Microservices architecture",
+      "Database integration and ORM",
+      "Security implementation",
+      "Testing and quality assurance",
     ],
-    technologies: ['Spring Boot', 'Spring Security', 'Spring Data JPA', 'Hibernate', 'Maven', 'Gradle'],
+    technologies: [
+      "Spring Boot",
+      "Spring Security",
+      "Spring Data JPA",
+      "Hibernate",
+      "Maven",
+      "Gradle",
+    ],
     process: [
-      { title: 'Requirements Analysis', description: 'We analyze your project requirements and define the system architecture.' },
-      { title: 'Design', description: 'We design the application structure, including data models and API endpoints.' },
-      { title: 'Development', description: 'Our team develops the Spring application, following best practices and design patterns.' },
-      { title: 'Testing', description: 'We perform unit testing, integration testing, and end-to-end testing.' },
-      { title: 'Deployment', description: 'We deploy your Spring application to your chosen server or cloud platform.' },
-      { title: 'Monitoring and Maintenance', description: 'We set up monitoring tools and provide ongoing maintenance and support.' }
-    ]
+      {
+        title: "Requirements Analysis",
+        description:
+          "We analyze your project requirements and define the system architecture.",
+      },
+      {
+        title: "Design",
+        description:
+          "We design the application structure, including data models and API endpoints.",
+      },
+      {
+        title: "Development",
+        description:
+          "Our team develops the Spring application, following best practices and design patterns.",
+      },
+      {
+        title: "Testing",
+        description:
+          "We perform unit testing, integration testing, and end-to-end testing.",
+      },
+      {
+        title: "Deployment",
+        description:
+          "We deploy your Spring application to your chosen server or cloud platform.",
+      },
+      {
+        title: "Monitoring and Maintenance",
+        description:
+          "We set up monitoring tools and provide ongoing maintenance and support.",
+      },
+    ],
   },
   {
     id: 4,
-    title: 'DevOps Engineering',
-    description: 'Streamlining development and operations for faster delivery and improved collaboration.',
+    title: "DevOps Engineering",
+    description:
+      "Streamlining development and operations for faster delivery and improved collaboration.",
     icon: GitBranch,
-    longDescription: 'Our DevOps engineering service focuses on improving your development and deployment processes. We implement CI/CD pipelines, containerization, and infrastructure as code to increase efficiency and reduce time-to-market.',
+    longDescription:
+      "Our DevOps engineering service focuses on improving your development and deployment processes. We implement CI/CD pipelines, containerization, and infrastructure as code to increase efficiency and reduce time-to-market.",
     features: [
-      'CI/CD pipeline implementation',
-      'Infrastructure as Code (IaC)',
-      'Containerization and orchestration',
-      'Cloud infrastructure management',
-      'Monitoring and logging',
-      'Security and compliance'
+      "CI/CD pipeline implementation",
+      "Infrastructure as Code (IaC)",
+      "Containerization and orchestration",
+      "Cloud infrastructure management",
+      "Monitoring and logging",
+      "Security and compliance",
     ],
-    technologies: ['Docker', 'Kubernetes', 'Jenkins', 'GitLab CI', 'Terraform', 'Ansible', 'Prometheus'],
+    technologies: [
+      "Docker",
+      "Kubernetes",
+      "Jenkins",
+      "GitLab CI",
+      "Terraform",
+      "Ansible",
+      "Prometheus",
+    ],
     process: [
-      { title: 'Assessment', description: 'We assess your current development and deployment processes to identify areas for improvement.' },
-      { title: 'Strategy Development', description: 'We create a DevOps strategy tailored to your organization\'s needs.' },
-      { title: 'Tool Selection', description: 'We help you choose the right tools and technologies for your DevOps implementation.' },
-      { title: 'Implementation', description: 'We implement CI/CD pipelines, containerization, and infrastructure as code.' },
-      { title: 'Automation', description: 'We automate testing, deployment, and infrastructure management processes.' },
-      { title: 'Monitoring and Optimization', description: 'We set up monitoring and logging systems and continuously optimize your DevOps processes.' }
-    ]
+      {
+        title: "Assessment",
+        description:
+          "We assess your current development and deployment processes to identify areas for improvement.",
+      },
+      {
+        title: "Strategy Development",
+        description:
+          "We create a DevOps strategy tailored to your organization's needs.",
+      },
+      {
+        title: "Tool Selection",
+        description:
+          "We help you choose the right tools and technologies for your DevOps implementation.",
+      },
+      {
+        title: "Implementation",
+        description:
+          "We implement CI/CD pipelines, containerization, and infrastructure as code.",
+      },
+      {
+        title: "Automation",
+        description:
+          "We automate testing, deployment, and infrastructure management processes.",
+      },
+      {
+        title: "Monitoring and Optimization",
+        description:
+          "We set up monitoring and logging systems and continuously optimize your DevOps processes.",
+      },
+    ],
   },
-]
+  {
+    id: 5,
+    title: "Cyber Security Solutions",
+    description:
+      "Protecting your digital assets and ensuring robust security across your systems and networks.",
+    icon: ShieldCheck,
+    longDescription:
+      "Our Cyber Security service focuses on safeguarding your organization from cyber threats. We provide end-to-end security solutions, including threat detection, vulnerability assessments, incident response, and compliance management to ensure your systems are secure and resilient.",
+    features: [
+      "Threat detection and prevention",
+      "Vulnerability assessments and penetration testing",
+      "Incident response and recovery",
+      "Security Information and Event Management (SIEM)",
+      "Identity and Access Management (IAM)",
+      "Compliance and risk management",
+      "Endpoint and network security",
+    ],
+    technologies: [
+      "Firewalls",
+      "SIEM Tools",
+      "EDR Solutions",
+      "VPNs",
+      "Encryption Tools",
+      "IAM Solutions",
+      "Penetration Testing Tools",
+    ],
+    process: [
+      {
+        title: "Assessment",
+        description:
+          "We conduct a comprehensive assessment of your current security posture to identify vulnerabilities and risks.",
+      },
+      {
+        title: "Strategy Development",
+        description:
+          "We develop a customized cyber security strategy aligned with your organization's goals and compliance requirements.",
+      },
+      {
+        title: "Tool Selection",
+        description:
+          "We help you select the right security tools and technologies to address your specific needs.",
+      },
+      {
+        title: "Implementation",
+        description:
+          "We implement security measures such as firewalls, SIEM, IAM, and encryption to protect your systems.",
+      },
+      {
+        title: "Monitoring and Detection",
+        description:
+          "We set up 24/7 monitoring and threat detection systems to identify and respond to security incidents in real-time.",
+      },
+      {
+        title: "Incident Response and Recovery",
+        description:
+          "We provide rapid incident response and recovery services to minimize damage and downtime in case of a breach.",
+      },
+      {
+        title: "Continuous Improvement",
+        description:
+          "We regularly review and optimize your security measures to adapt to evolving threats and ensure ongoing protection.",
+      },
+    ],
+  },
+];
 
 export default function ServicePage() {
-  const params = useParams()
-  const serviceId = parseInt(params.id as string)
-  const service = services.find(s => s.id === serviceId)
-  const [activeAccordion, setActiveAccordion] = useState<string | null>(null)
+  const params = useParams();
+  const serviceId = parseInt(params.id as string);
+  const service = services.find((s) => s.id === serviceId);
+  const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
 
   if (!service) {
-    return <div>Service not found</div>
+    return (
+      <div className="w-full h-[75vh] grid place-content-center">
+        Service not found
+      </div>
+    );
   }
 
   return (
-    <div className="container mx-auto px-4 pb-10 dark:from-gray-900 dark:to-black bg-white dark:bg-gray-900">
+    <div className="px-8 pb-10 dark:from-gray-900 dark:to-black bg-white dark:bg-gray-900">
       <Link href="/services" passHref>
-        <Button variant="ghost" className="py-10 text-black hover:text-blue-400 dark:text-white dark:hover:text-blue-300 transition-colors">
+        <Button
+          variant="ghost"
+          className="py-10 text-black hover:text-blue-400 dark:text-white dark:hover:text-blue-300 transition-colors"
+        >
           <ArrowLeft className="mr-2 h-4 w-4" /> Back to Services
         </Button>
       </Link>
@@ -138,14 +356,20 @@ export default function ServicePage() {
                 <service.icon className="h-8 w-8 text-white" />
               </div>
               <div>
-                <CardTitle className="text-2xl text-gradient-to-r from-teal-400 to-blue-500">{service.title}</CardTitle>
-                <CardDescription className="text-lg text-black dark:text-gray-300">{service.description}</CardDescription>
+                <CardTitle className="text-2xl text-gradient-to-r from-teal-400 to-blue-500">
+                  {service.title}
+                </CardTitle>
+                <CardDescription className="text-lg text-black dark:text-gray-300">
+                  {service.description}
+                </CardDescription>
               </div>
             </div>
           </CardHeader>
           <CardContent className="py-6 text-black dark:bg-gray-700 dark:text-gray-200">
             <p className="mb-6">{service.longDescription}</p>
-            <h3 className="text-xl font-semibold mb-4 text-teal-500">Key Features</h3>
+            <h3 className="text-xl font-semibold mb-4 text-teal-500">
+              Key Features
+            </h3>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {service.features.map((feature, index) => (
                 <motion.li
@@ -156,7 +380,9 @@ export default function ServicePage() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                   <Check className="h-5 w-5 text-teal-500 mt-1" />
-                  <span className="text-black dark:text-gray-200">{feature}</span>
+                  <span className="text-black dark:text-gray-200">
+                    {feature}
+                  </span>
                 </motion.li>
               ))}
             </ul>
@@ -165,7 +391,9 @@ export default function ServicePage() {
 
         <Card className="mb-8 bg-gradient-to-r from-purple-700 to-pink-600 border border-transparent rounded-lg shadow-lg dark:bg-gradient-to-tl dark:from-indigo-600 dark:to-purple-900">
           <CardHeader>
-            <CardTitle className="text-2xl text-white">Technologies We Use</CardTitle>
+            <CardTitle className="text-2xl text-white">
+              Technologies We Use
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="flex flex-wrap gap-2">
@@ -176,7 +404,10 @@ export default function ServicePage() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
                 >
-                  <Badge variant="secondary" className="bg-teal-600 text-white hover:text-teal-500 hover:border-teal-500 hover:cursor-pointer dark:bg-teal-700 dark:hover:bg-teal-600">
+                  <Badge
+                    variant="secondary"
+                    className="bg-teal-600 text-white hover:text-teal-500 hover:border-teal-500 hover:cursor-pointer dark:bg-teal-700 dark:hover:bg-teal-600"
+                  >
                     {tech}
                   </Badge>
                 </motion.div>
@@ -195,7 +426,13 @@ export default function ServicePage() {
                 <AccordionItem value={`item-${index}`} key={index}>
                   <AccordionTrigger
                     className="text-xl text-white hover:text-yellow-400 transition-colors dark:text-gray-200 dark:hover:text-yellow-300"
-                    onClick={() => setActiveAccordion(activeAccordion === `item-${index}` ? null : `item-${index}`)}
+                    onClick={() =>
+                      setActiveAccordion(
+                        activeAccordion === `item-${index}`
+                          ? null
+                          : `item-${index}`,
+                      )
+                    }
                   >
                     {step.title}
                   </AccordionTrigger>
@@ -203,7 +440,7 @@ export default function ServicePage() {
                     {activeAccordion === `item-${index}` && (
                       <motion.div
                         initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
+                        animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3 }}
                       >
@@ -219,20 +456,26 @@ export default function ServicePage() {
               <AccordionItem value="item-new">
                 <AccordionTrigger
                   className="text-xl text-white hover:text-yellow-400 transition-colors dark:text-gray-200 dark:hover:text-yellow-300"
-                  onClick={() => setActiveAccordion(activeAccordion === 'item-new' ? null : 'item-new')}
+                  onClick={() =>
+                    setActiveAccordion(
+                      activeAccordion === "item-new" ? null : "item-new",
+                    )
+                  }
                 >
                   Continuous Improvement
                 </AccordionTrigger>
                 <AnimatePresence>
-                  {activeAccordion === 'item-new' && (
+                  {activeAccordion === "item-new" && (
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
+                      animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3 }}
                     >
                       <AccordionContent className="bg-opacity-20 bg-gray-900 text-white p-4 rounded-lg dark:bg-opacity-40 dark:bg-gray-800">
-                        We continuously monitor and evaluate the project to implement iterative improvements, ensuring long-term success.
+                        We continuously monitor and evaluate the project to
+                        implement iterative improvements, ensuring long-term
+                        success.
                       </AccordionContent>
                     </motion.div>
                   )}
@@ -241,8 +484,26 @@ export default function ServicePage() {
             </Accordion>
           </CardContent>
         </Card>
+        <Link href="/learning" passHref>
+          <Button className="my-4 ml-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-4 rounded flex items-center transition-transform hover:scale-105">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+              />
+            </svg>
+            Start Learning
+          </Button>
+        </Link>
       </motion.div>
     </div>
-
-  )
+  );
 }

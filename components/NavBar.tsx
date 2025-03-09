@@ -15,6 +15,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ModeToggle } from "./ModeToggle";
+import { useUser } from "@clerk/nextjs";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -28,6 +29,7 @@ const navItems = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const { isSignedIn } = useUser();
 
   // Helper function to normalize a path by removing a trailing slash (if not the root)
   const normalizePath = (path: string) => {
@@ -91,6 +93,23 @@ export default function Navbar() {
                     </NavigationMenuItem>
                   );
                 })}
+                {/* Show "Learning" item only if the user is signed in */}
+                {isSignedIn && (
+                  <NavigationMenuItem>
+                    <Link href="/learning" legacyBehavior passHref>
+                      <NavigationMenuLink
+                        className={cn(
+                          "block select-none px-4 py-2 rounded-xl text-sm font-medium transition-all ease-in-out duration-300",
+                          isActive("/learning")
+                            ? "bg-gradient-to-r from-purple-500 to-cyan-500 text-white shadow-lg"
+                            : "text-gray-800 dark:text-white hover:bg-gradient-to-r hover:from-purple-500 hover:to-cyan-500 hover:text-white dark:hover:bg-gradient-to-r dark:hover:from-purple-300 dark:hover:to-cyan-300 dark:hover:text-white",
+                        )}
+                      >
+                        Learning
+                      </NavigationMenuLink>
+                    </Link>
+                  </NavigationMenuItem>
+                )}
               </NavigationMenuList>
             </NavigationMenu>
 
