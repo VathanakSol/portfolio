@@ -18,9 +18,10 @@ import { ModeToggle } from "./ModeToggle";
 // import { SignOutButton } from "@clerk/nextjs";
 
 const navItems = [
-  { name: "Overview", path: "#" },
+  { name: "Overview", path: "/overview" },
   { name: "Documentation", path: "#" },
-  { name: "Course", path: "#" },
+  { name: "Learning", path: "/learning" },
+  { name: "Profile", path: "/profile" },
 ];
 
 export default function Navbar() {

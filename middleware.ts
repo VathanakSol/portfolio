@@ -27,7 +27,7 @@ export default clerkMiddleware(async (auth, request) => {
   } else if (pathname.startsWith("/sign-in")) {
     // If user is already authenticated and on the sign-in page
     // redirect to default dashboard/home
-    return Response.redirect(new URL("/learning", request.url));
+    return Response.redirect(new URL("/overview", request.url));
   }
   // Allow authenticated users to access the root page
 });
