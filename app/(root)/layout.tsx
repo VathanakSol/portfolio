@@ -11,6 +11,7 @@ import BackToTopButton from "@/components/BackToTopButton";
 import { Poppins } from "next/font/google";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { ClerkProvider } from "@clerk/nextjs";
+import Script from "next/script";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -58,6 +59,13 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            {/* Add the Google AdSense script */}
+            <Script
+              id="adsbygoogle-init"
+              strategy="afterInteractive" // Load after the page is interactive
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1861181031288603"
+              crossOrigin="anonymous"
+            />
             <NavBar />
             {/* <VisitorCounter /> */}
             <ScrollProgressBar />

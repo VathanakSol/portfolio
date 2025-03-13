@@ -4,7 +4,6 @@ import Header from "@/components/Header";
 import Projects from "@/components/Project";
 // import YoutubeSection from '@/components/YoutubeSection';
 import type { Metadata } from "next";
-import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "NakTech",
@@ -74,16 +73,19 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      {/* Add the Google AdSense script */}
-      <Script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1861181031288603"
-        crossOrigin="anonymous"
-        strategy="lazyOnload" // Optimize script loading
-      />
       <main className="dark:bg-gray-800">
         <Header />
         <DevOpsPipeline />
+
+        <ins
+          className="adsbygoogle"
+          style={{ display: "block" }}
+          data-ad-client="ca-pub-1861181031288603"
+          data-ad-slot="1234567890"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+
         {/* <YoutubeSection /> */}
         <Projects />
       </main>
