@@ -18,10 +18,10 @@ export const metadata: Metadata = {
     title: "Buy Me a Coffee - Support My Work",
     description:
       "Support my work by buying me a coffee! Choose between Khmer QR or Dollar QR to make a contribution.",
-    url: "https://www.naktech.pro/buy-me-coffee",
+    url: "https://naktech.pro/buy-me-coffee",
     images: [
       {
-        url: "/assets/dollarqr.jpeg", // Default image for sharing
+        url: "https://7zg3rv0nfdklwx5q.public.blob.vercel-storage.com/naktech/khmerqr-4nI4welJDp59q8QDh3fjtddJmS3pSo.jpeg", // Default image for sharing
         width: 1200,
         height: 630,
         alt: "Khmer QR - Buy Me a Coffee",

@@ -1,6 +1,6 @@
 import OverviewPage from "@/components/lms/OverviewPage";
 
-export default function LearningPage() {
+export default function Overview() {
   return (
     <>
       <OverviewPage />
