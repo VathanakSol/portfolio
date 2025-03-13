@@ -39,7 +39,7 @@ export default function Overview() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 sm:text-5xl">
+          <h1 className="text-4xl py-4 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 dark:from-purple-400 dark:to-cyan-400 hover:from-purple-600 hover:to-cyan-600 dark:hover:from-purple-300 dark:hover:to-cyan-300 transition-all ease-in-out duration-300 text-center">
             Welcome to the Interactive Learning Platform
           </h1>
           <p className="mt-4 text-xl text-gray-600 dark:text-gray-300">
@@ -55,9 +55,9 @@ export default function Overview() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200 dark:border-gray-700 hover:border-cyan-400 dark:hover:border-cyan-400"
             >
-              <div className="text-blue-600 dark:text-blue-400 mb-4">
+              <div className="text-cyan-600 dark:text-cyan-400 mb-4">
                 <feature.icon />
               </div>
               <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
@@ -77,13 +77,13 @@ export default function Overview() {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="mt-16 text-center"
         >
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+          <h2 className="text-3xl py-4 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 dark:from-purple-400 dark:to-cyan-400 hover:from-purple-600 hover:to-cyan-600 dark:hover:from-purple-300 dark:hover:to-cyan-300 transition-all ease-in-out duration-300 text-center">
             Ready to Start Learning?
           </h2>
 
           <Link
             href="/learning"
-            className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300"
+            className="inline-block bg-gradient-to-r from-cyan-500 to-purple-500 dark:from-cyan-600 dark:to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-cyan-600 hover:to-purple-600 dark:hover:from-cyan-700 dark:hover:to-purple-700 transition-all duration-300"
           >
             Explore Courses
           </Link>
