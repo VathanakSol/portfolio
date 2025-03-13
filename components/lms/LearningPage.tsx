@@ -69,7 +69,9 @@ export default function LearningPage() {
               <CardContent className="p-6">
                 <Button
                   className="w-full h-36 text-lg group relative overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 hover:from-blue-50 hover:to-blue-100 dark:hover:from-blue-600 dark:hover:to-blue-800 border border-slate-200 dark:border-blue-400/40"
-                  onClick={() => handleOptionClick("quizzes")}
+                  onClick={() => {
+                    handleOptionClick("/devops");
+                  }}
                 >
                   <div className="absolute inset-0 bg-[url('/mesh-grid.svg')] opacity-10 dark:opacity-20 group-hover:opacity-20 dark:group-hover:opacity-30 transition-opacity"></div>
                   <div className="flex flex-col items-center justify-center space-y-2 relative z-10">
