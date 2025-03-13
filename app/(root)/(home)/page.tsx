@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Projects from "@/components/Project";
 // import YoutubeSection from '@/components/YoutubeSection';
 import type { Metadata } from "next";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "NakTech",
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     siteName: "NakTech",
     images: [
       {
-        url: "https://7zg3rv0nfdklwx5q.public.blob.vercel-storage.com/naktech/SOL_VATHANAK-1XrAhuEgGpQMSlVIxXsYnTR57aYjx4.jpg",
+        url: "https://7zg3rv0nfdklwx5q.public.blob.vercel-storage.com/naktech/2-xEHKaOOecwUXcNTcEd39pyTVqZaQSx.png",
         width: 1200,
         height: 630,
         alt: "Sol Vathanak - NakTech",
@@ -73,6 +74,13 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
+      {/* Add the Google AdSense script */}
+      <Script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1861181031288603"
+        crossOrigin="anonymous"
+        strategy="lazyOnload" // Optimize script loading
+      />
       <main className="dark:bg-gray-800">
         <Header />
         <DevOpsPipeline />
