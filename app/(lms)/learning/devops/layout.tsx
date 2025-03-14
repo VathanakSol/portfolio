@@ -16,9 +16,9 @@ export default function DevOpsLayout({
 }) {
   const pathname = usePathname();
   const [activeTab, setActiveTab] = useState(() => {
-    if (pathname.includes("/courses")) return "courses";
-    if (pathname.includes("/videos")) return "videos";
-    if (pathname.includes("/quizzes")) return "quizzes";
+    if (pathname.startsWith("/learning/devops/courses")) return "courses";
+    if (pathname.startsWith("/learning/devops/videos")) return "videos";
+    if (pathname.startsWith("/learning/devops/quizzes")) return "quizzes";
     return "overview";
   });
 
@@ -43,25 +43,41 @@ export default function DevOpsLayout({
 
         <Tabs value={activeTab} className="mb-8" onValueChange={setActiveTab}>
           <TabsList className="grid grid-cols-4 w-full max-w-2xl">
-            <TabsTrigger value="overview" asChild>
+            <TabsTrigger
+              value="overview"
+              asChild
+              className="data-[state=active]:bg-blue-500 data-[state=active]:text-white"
+            >
               <Link href="/learning/devops">
                 <Cpu className="h-4 w-4 mr-2" />
                 Overview
               </Link>
             </TabsTrigger>
-            <TabsTrigger value="courses" asChild>
+            <TabsTrigger
+              value="courses"
+              asChild
+              className="data-[state=active]:bg-blue-500 data-[state=active]:text-white"
+            >
               <Link href="/learning/devops/courses">
                 <BookOpen className="h-4 w-4 mr-2" />
                 Courses
               </Link>
             </TabsTrigger>
-            <TabsTrigger value="videos" asChild>
+            <TabsTrigger
+              value="videos"
+              asChild
+              className="data-[state=active]:bg-blue-500 data-[state=active]:text-white"
+            >
               <Link href="/learning/devops/videos">
                 <Video className="h-4 w-4 mr-2" />
                 Videos
               </Link>
             </TabsTrigger>
-            <TabsTrigger value="quizzes" asChild>
+            <TabsTrigger
+              value="quizzes"
+              asChild
+              className="data-[state=active]:bg-blue-500 data-[state=active]:text-white"
+            >
               <Link href="/learning/devops/quizzes">
                 <FileQuestion className="h-4 w-4 mr-2" />
                 Quizzes
