@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronDown, Github, Globe } from "lucide-react";
+import { ChevronDown, Github, Gitlab, Globe, Linkedin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -9,7 +9,13 @@ import TypingHeading from "./TypingHeading";
 
 const socialLinks = [
   { name: "GitHub", icon: Github, url: "https://github.com/VathanakSol" },
+  { name: "GitLab", icon: Gitlab, url: "https://gitlab.com/vathanak24" },
   { name: "Website", icon: Globe, url: "https://naktech.pro" },
+  {
+    name: "LinkedIn",
+    icon: Linkedin,
+    url: "https://www.linkedin.com/in/vathanak-sol-07b710353/",
+  },
 ];
 
 const Header: React.FC = () => {

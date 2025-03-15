@@ -1,14 +1,30 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Code, Palette, Server, GitBranch, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Code,
+  Palette,
+  Server,
+  GitBranch,
+  ExternalLink,
+  ChevronDown,
+  ChevronUp,
+  Shield,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface Project {
   id: number;
@@ -30,64 +46,103 @@ interface Service {
 const projects: Project[] = [
   {
     id: 1,
-    title: 'DealKH',
-    description: 'E-commerce Website for deals and discounts in Cambodia',
-    image: '/assets/dealkh.jpg',
-    technologies: ['Next.js', 'Spring Boot', 'Postgres'],
-    link: 'https://dealkh.istad.co'
+    title: "DealKH",
+    description: "E-commerce Website for deals and discounts in Cambodia",
+    image: "/assets/dealkh.jpg",
+    technologies: ["Next.js", "Spring Boot", "Postgres"],
+    link: "https://dealkh.istad.co",
   },
   {
     id: 2,
-    title: 'Open Source Template',
-    description: 'Free Template Website Download for developers',
-    image: '/assets/opensourcetemplate.jpg',
-    technologies: ['HTML', 'CSS', 'JavaScript', 'jQuery'],
-    link: 'https://opensource-templates-9xu7.vercel.app/'
+    title: "Open Source Template",
+    description: "Free Template Website Download for developers",
+    image: "/assets/opensourcetemplate.jpg",
+    technologies: ["HTML", "CSS", "JavaScript", "jQuery"],
+    link: "https://opensource-templates-9xu7.vercel.app/",
   },
   {
     id: 3,
-    title: 'Cloudinator',
-    description: 'Service Deployment Website for both monolothic and microservice applications',
-    image: 'https://7zg3rv0nfdklwx5q.public.blob.vercel-storage.com/naktech/cloudinator-preview-CgLzpt4WQQjnms8AcGJ3WOizvpV7aO.png',
-    technologies: ['Spring Boot', 'Java', 'Next.js'],
-    link: 'https://cloudinator.istad.co/'
+    title: "Cloudinator",
+    description:
+      "Service Deployment Website for both monolothic and microservice applications",
+    image:
+      "https://7zg3rv0nfdklwx5q.public.blob.vercel-storage.com/naktech/cloudinator-preview-CgLzpt4WQQjnms8AcGJ3WOizvpV7aO.png",
+    technologies: ["Spring Boot", "Java", "Next.js"],
+    link: "https://cloudinator.istad.co/",
   },
 ];
 
 const services: Service[] = [
   {
     id: 1,
-    title: 'Web Development',
-    description: 'Building dynamic and responsive websites using modern technologies.',
+    title: "Web Development",
+    description:
+      "Building dynamic and responsive websites using modern technologies.",
     icon: Code,
-    features: ['Custom web applications', 'Responsive design', 'API integration', 'Performance optimization']
+    features: [
+      "Custom web applications",
+      "Responsive design",
+      "API integration",
+      "Performance optimization",
+    ],
   },
   {
     id: 2,
-    title: 'UI/UX Design',
-    description: 'Designing user interfaces and experiences that are both functional and aesthetically pleasing.',
+    title: "UI/UX Design",
+    description:
+      "Designing user interfaces and experiences that are both functional and aesthetically pleasing.",
     icon: Palette,
-    features: ['User research', 'Wireframing', 'Prototyping', 'Usability testing']
+    features: [
+      "User research",
+      "Wireframing",
+      "Prototyping",
+      "Usability testing",
+    ],
   },
   {
     id: 3,
-    title: 'Spring Development',
-    description: 'Developing robust applications using the Spring framework for seamless performance.',
+    title: "Spring Development",
+    description:
+      "Developing robust applications using the Spring framework for seamless performance.",
     icon: Server,
-    features: ['Spring Boot applications', 'Microservices architecture', 'RESTful APIs', 'Database integration']
+    features: [
+      "Spring Boot applications",
+      "Microservices architecture",
+      "RESTful APIs",
+      "Database integration",
+    ],
   },
   {
     id: 4,
-    title: 'DevOps Engineering',
-    description: 'Streamlining development and operations for faster delivery and improved collaboration.',
+    title: "DevOps Engineering",
+    description:
+      "Streamlining development and operations for faster delivery and improved collaboration.",
     icon: GitBranch,
-    features: ['CI/CD pipelines', 'Infrastructure as Code', 'Containerization', 'Cloud management']
+    features: [
+      "CI/CD pipelines",
+      "Infrastructure as Code",
+      "Containerization",
+      "Cloud management",
+    ],
+  },
+  {
+    id: 5,
+    title: "Cyber Security",
+    description:
+      "Protecting systems, networks, and data from cyber threats to ensure confidentiality, integrity, and availability.",
+    icon: Shield,
+    features: [
+      "Threat detection & response",
+      "Vulnerability management",
+      "Network security",
+      "Data encryption",
+    ],
   },
 ];
 
 export default function ProjectsAndServices() {
   const [expandedService, setExpandedService] = useState<number | null>(null);
-  const [activeTab, setActiveTab] = useState('projects'); // State to manage active tab
+  const [activeTab, setActiveTab] = useState("projects"); // State to manage active tab
 
   const toggleService = (id: number) => {
     setExpandedService(expandedService === id ? null : id);
@@ -108,21 +163,23 @@ export default function ProjectsAndServices() {
         <TabsList className="grid w-full grid-cols-2 bg-gray-100 dark:bg-gray-800 p-1 rounded-lg border border-gray-200 dark:border-gray-700">
           <TabsTrigger
             value="projects"
-            onClick={() => setActiveTab('projects')}
-            className={`${activeTab === 'projects'
-                ? 'bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-cyan-500 dark:to-blue-500 text-white shadow-md dark:shadow-cyan-500/30'
-                : 'bg-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700'
-              } rounded-lg transition-all duration-300`}
+            onClick={() => setActiveTab("projects")}
+            className={`${
+              activeTab === "projects"
+                ? "bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-cyan-500 dark:to-blue-500 text-white shadow-md dark:shadow-cyan-500/30"
+                : "bg-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700"
+            } rounded-lg transition-all duration-300`}
           >
             Projects
           </TabsTrigger>
           <TabsTrigger
             value="services"
-            onClick={() => setActiveTab('services')}
-            className={`${activeTab === 'services'
-                ? 'bg-gradient-to-r from-purple-500 to-pink-500 dark:from-pink-500 dark:to-purple-500 text-white shadow-md dark:shadow-purple-500/30'
-                : 'bg-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700'
-              } rounded-lg transition-all duration-300`}
+            onClick={() => setActiveTab("services")}
+            className={`${
+              activeTab === "services"
+                ? "bg-gradient-to-r from-purple-500 to-pink-500 dark:from-pink-500 dark:to-purple-500 text-white shadow-md dark:shadow-purple-500/30"
+                : "bg-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700"
+            } rounded-lg transition-all duration-300`}
           >
             Services
           </TabsTrigger>
@@ -172,7 +229,11 @@ export default function ProjectsAndServices() {
                       </div>
                     </CardContent>
                     <CardFooter>
-                      <Link href={project.link} target="_blank" rel="noopener noreferrer">
+                      <Link
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Button className="bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-cyan-500 dark:to-blue-500 text-white hover:shadow-md hover:shadow-blue-500/20 dark:hover:shadow-cyan-500/30 transition-all duration-300">
                           View Project <ExternalLink className="ml-2 h-4 w-4" />
                         </Button>
@@ -221,23 +282,30 @@ export default function ProjectsAndServices() {
                           ) : (
                             <ChevronDown className="h-4 w-4" />
                           )}
-                          <span className="sr-only">Toggle service details</span>
+                          <span className="sr-only">
+                            Toggle service details
+                          </span>
                         </Button>
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-gray-600 dark:text-gray-400">{service.description}</p>
+                      <p className="text-gray-600 dark:text-gray-400">
+                        {service.description}
+                      </p>
                       <AnimatePresence>
                         {expandedService === service.id && (
                           <motion.div
                             initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
+                            animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.3 }}
                           >
                             <ul className="mt-4 space-y-2">
                               {service.features.map((feature, i) => (
-                                <li key={i} className="flex items-center space-x-2">
+                                <li
+                                  key={i}
+                                  className="flex items-center space-x-2"
+                                >
                                   <Code className="h-4 w-4 text-blue-500 dark:text-purple-400" />
                                   <span className="text-gray-600 dark:text-gray-300">
                                     {feature}
@@ -263,7 +331,6 @@ export default function ProjectsAndServices() {
           </motion.div>
         </TabsContent>
       </Tabs>
-
     </div>
   );
 }
