@@ -76,7 +76,6 @@ export default function HomePage() {
       <main className="dark:bg-gray-800">
         <Header />
         <DevOpsPipeline />
-
         <ins
           className="adsbygoogle"
           style={{ display: "block" }}

@@ -10,6 +10,18 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "introduction-to-cloud-computing",
+    title: "What is Cloud Computing",
+    excerpt:
+      "Understanding the fundamentals of Cloud Computing and its importance in modern IT infrastructure.",
+    content:
+      "Cloud Computing is a revolutionary approach to IT infrastructure and services that emphasizes scalability, flexibility, and cost-efficiency. By leveraging remote servers hosted on the internet to store, manage, and process data, Cloud Computing eliminates the need for on-premises hardware and enables organizations to access computing resources on-demand.\n\nAt its core, Cloud Computing integrates services such as Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS). These services allow businesses to scale resources up or down based on demand, reduce capital expenditure, and focus on innovation rather than infrastructure management. Popular cloud providers like Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP) offer a wide range of tools and services, including virtual machines, databases, machine learning, and serverless computing.\n\nThe benefits of Cloud Computing include reduced operational costs, improved disaster recovery, enhanced collaboration, and the ability to deploy applications globally with minimal latency. By adopting Cloud Computing, organizations can achieve greater agility, innovate faster, and stay competitive in an increasingly digital world.",
+    date: "2025-03-23",
+    readTime: "3 min read",
+    coverImage:
+      "https://7zg3rv0nfdklwx5q.public.blob.vercel-storage.com/naktech/cloud-splTeG9d067T41ef7I0VajpLXLe5QN.jpeg",
+  },
+  {
     id: "introduction-to-devops",
     title: "What is DevOps",
     excerpt:

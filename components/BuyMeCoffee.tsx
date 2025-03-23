@@ -5,47 +5,13 @@ import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
-import { Metadata } from "next/types";
-
-export const metadata: Metadata = {
-  title: "Buy Me a Coffee - Support My Work",
-  description:
-    "Support my work by buying me a coffee! Choose between Khmer QR or Dollar QR to make a contribution.",
-  keywords: [
-    "buy me a coffee",
-    "support my work",
-    "Khmer QR",
-    "Dollar QR",
-    "coffee donation",
-  ],
-  openGraph: {
-    title: "Buy Me a Coffee - Support My Work",
-    description:
-      "Support my work by buying me a coffee! Choose between Khmer QR or Dollar QR to make a contribution.",
-    url: "https://naktech.pro/buy-me-coffee", // Replace with your actual URL
-    images: [
-      {
-        url: "/assets/dollarqr.jpeg", // Default image for sharing
-        width: 1200,
-        height: 630,
-        alt: "Khmer QR - Buy Me a Coffee",
-      },
-    ],
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Buy Me a Coffee - Support My Work",
-    description:
-      "Support my work by buying me a coffee! Choose between Khmer QR or Dollar QR to make a contribution.",
-    images: ["/assets/dollarqr.jpeg"],
-  },
-};
+import Link from "next/link";
 
 const BuyMeCoffee = () => {
   const [loadingTab1, setLoadingTab1] = useState(true);
   const [loadingTab2, setLoadingTab2] = useState(true);
-
+  const khmerQRLink = "https://pay.ababank.com/FaoheDXWd6dohWn78";
+  const dollarQRLink = "https://pay.ababank.com/CUd6dMgNumbnUFeX8";
   return (
     <div className="w-full min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-black py-10">
       <Tabs defaultValue="tab1" className="w-full max-w-md mx-auto px-4">
@@ -81,16 +47,18 @@ const BuyMeCoffee = () => {
                 <Loader2 className="animate-spin h-8 w-8 text-blue-500 dark:text-blue-300" />
               </div>
             )}
-            <Image
-              src="/assets/khmerqr.jpeg"
-              alt="Khmer KHQR"
-              width={400}
-              height={160}
-              className={`w-full h-auto object-cover transition-opacity duration-500 ${
-                loadingTab1 ? "opacity-0" : "opacity-100"
-              }`}
-              onLoadingComplete={() => setLoadingTab1(false)}
-            />
+            <Link href={khmerQRLink}>
+              <Image
+                src="/assets/khmerqr.jpeg"
+                alt="Khmer KHQR"
+                width={400}
+                height={160}
+                className={`w-full h-auto object-cover transition-opacity duration-500 ${
+                  loadingTab1 ? "opacity-0" : "opacity-100"
+                }`}
+                onLoadingComplete={() => setLoadingTab1(false)}
+              />
+            </Link>
           </motion.div>
         </TabsContent>
 
@@ -110,16 +78,18 @@ const BuyMeCoffee = () => {
                 <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-gray-900 dark:border-white" />
               </div>
             )}
-            <Image
-              src="/assets/dollarqr.jpeg"
-              alt="Dollar KHQR"
-              width={400}
-              height={160}
-              className={`w-full h-auto object-cover transition-opacity duration-500 ${
-                loadingTab2 ? "opacity-0" : "opacity-100"
-              }`}
-              onLoadingComplete={() => setLoadingTab2(false)}
-            />
+            <Link href={dollarQRLink}>
+              <Image
+                src="/assets/dollarqr.jpeg"
+                alt="Dollar KHQR"
+                width={400}
+                height={160}
+                className={`w-full h-auto object-cover transition-opacity duration-500 ${
+                  loadingTab2 ? "opacity-0" : "opacity-100"
+                }`}
+                onLoadingComplete={() => setLoadingTab2(false)}
+              />
+            </Link>
           </motion.div>
         </TabsContent>
       </Tabs>
