@@ -52,6 +52,16 @@ export default async function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
+        <head>
+          {/* Google AdSense Auto Ads Script */}
+          <Script
+            id="adsbygoogle-init"
+            strategy="afterInteractive"
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1861181031288603`}
+            crossOrigin="anonymous"
+          />
+        </head>
+
         <body className={poppins.className}>
           <ThemeProvider
             attribute="class"
@@ -59,13 +69,13 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {/* Add the Google AdSense script */}
-            <Script
+            {/* Add the Google Auto AdSense script */}
+            {/* <Script
               id="adsbygoogle-init"
               strategy="afterInteractive" // Load after the page is interactive
               src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1861181031288603"
               crossOrigin="anonymous"
-            />
+            /> */}
             <NavBar />
             {/* <VisitorCounter /> */}
             <ScrollProgressBar />
