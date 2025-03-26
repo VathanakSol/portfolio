@@ -1,4 +1,4 @@
-import DevOpsPipeline from "@/components/DevOpsPipeline";
+import ConfidenceBooster from "@/components/ConfidenceBooster";
 import Header from "@/components/Header";
 import Projects from "@/components/Project";
 import type { Metadata } from "next";
@@ -96,7 +96,7 @@ export default function HomePage() {
           <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
-        <DevOpsPipeline />
+        <ConfidenceBooster />
 
         {/* Manual Ad Unit 2 - Mid Content */}
         <div className="ad-container my-8 text-center">

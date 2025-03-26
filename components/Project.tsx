@@ -46,11 +46,13 @@ interface Service {
 const projects: Project[] = [
   {
     id: 1,
-    title: "DealKH",
-    description: "E-commerce Website for deals and discounts in Cambodia",
-    image: "/assets/dealkh.jpg",
-    technologies: ["Next.js", "Spring Boot", "Postgres"],
-    link: "https://dealkh.istad.co",
+    title: "Cloudinator",
+    description:
+      "Service Deployment Website for both monolothic and microservice applications",
+    image:
+      "https://7zg3rv0nfdklwx5q.public.blob.vercel-storage.com/naktech/cloudinator-preview-CgLzpt4WQQjnms8AcGJ3WOizvpV7aO.png",
+    technologies: ["Spring Boot", "Java", "Next.js", "DevOps Tool"],
+    link: "https://cloudinator.naktech.pro/",
   },
   {
     id: 2,
@@ -62,13 +64,11 @@ const projects: Project[] = [
   },
   {
     id: 3,
-    title: "Cloudinator",
-    description:
-      "Service Deployment Website for both monolothic and microservice applications",
-    image:
-      "https://7zg3rv0nfdklwx5q.public.blob.vercel-storage.com/naktech/cloudinator-preview-CgLzpt4WQQjnms8AcGJ3WOizvpV7aO.png",
-    technologies: ["Spring Boot", "Java", "Next.js"],
-    link: "https://cloudinator.istad.co/",
+    title: "DealKH",
+    description: "E-commerce Website for deals and discounts in Cambodia",
+    image: "/assets/dealkh.jpg",
+    technologies: ["Next.js", "Spring Boot", "Postgres"],
+    link: "https://dealkh.istad.co",
   },
 ];
 
