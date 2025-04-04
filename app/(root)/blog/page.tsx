@@ -6,11 +6,11 @@ import { FaBookmark, FaEthereum } from "react-icons/fa"
 
 export default function BlogPage() {
     return (
-        <div className="px-4 py-4 sm:px-8 sm:py-8 md:px-16 md:py-8 dark:bg-gray-900">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl py-4 sm:py-6 text-center font-bold hover:text-cyan-400 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 transition-all ease-in-out duration-300 dark:bg-gradient-to-r dark:from-purple-300 dark:to-cyan-300 dark:hover:text-white">
+        <div className="px-4 py-4 sm:px-6 sm:py-6 md:px-16 md:py-8 dark:bg-gray-900">
+            <h1 className="text-xl sm:text-2xl md:text-4xl py-4 sm:py-6 text-center font-bold hover:text-cyan-400 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 transition-all ease-in-out duration-300 dark:bg-gradient-to-r dark:from-purple-300 dark:to-cyan-300 dark:hover:text-white">
                 Dev Blogs
             </h1>
-            <div className="grid gap-4 sm:gap-6 md:gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                 {blogPosts.map((post: BlogPost) => (
                     <Link key={post.id} href={`/blog/${post.id}`} className="block group">
                         <Card className="flex flex-col h-full bg-white shadow-md transition-all duration-300 hover:shadow-xl dark:bg-gray-800 dark:text-gray-200">
@@ -25,14 +25,14 @@ export default function BlogPage() {
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                             </div>
                             <CardContent className="flex flex-col flex-grow p-4 sm:p-6">
-                                <div className="flex items-start justify-between gap-4 mb-3">
-                                    <CardTitle className="text-base sm:text-lg md:text-xl font-bold bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent truncate dark:from-cyan-300 dark:to-blue-400">
+                                <div className="flex items-start justify-between gap-2 sm:gap-4 mb-3">
+                                    <CardTitle className="text-sm sm:text-lg md:text-xl font-bold bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent truncate dark:from-cyan-300 dark:to-blue-400">
                                         {post.title}
                                     </CardTitle>
-                                    <FaEthereum className="text-lg sm:text-xl md:text-2xl flex-shrink-0" />
+                                    <FaEthereum className="text-base sm:text-xl md:text-2xl flex-shrink-0" />
                                 </div>
                                 <CardDescription className="text-gray-600 mb-4 dark:text-gray-400">
-                                    <div className="line-clamp-2">
+                                    <div className="line-clamp-2 text-sm sm:text-base">
                                         {post.excerpt}
                                     </div>
                                 </CardDescription>

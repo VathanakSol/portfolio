@@ -10,6 +10,15 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "introduction-to-rbac",
+    title: "What is Role-Based Access Control (RBAC)?",
+    excerpt: "Understanding the importance of Role-Based Access Control (RBAC) in managing user permissions and security.",
+    content: "Role-Based Access Control (RBAC) is a security model that restricts system access based on predefined roles within an organization. Instead of assigning permissions directly to users, RBAC assigns them to roles, and users are granted permissions based on their assigned roles. This approach enhances security, minimizes administrative overhead, and ensures that users have access only to the resources necessary for their job functions.\n\nRBAC operates on key principles such as role assignments, role permissions, and user-role relationships. Organizations define roles based on job responsibilities, and users are assigned roles that determine what actions they can perform. Common roles include administrators, managers, and employees, each with varying levels of access to systems and data.\n\nThe benefits of RBAC include improved security, reduced risk of unauthorized access, easier compliance with regulatory requirements, and streamlined management of user permissions. It is widely used in enterprise systems, cloud computing platforms, and software applications to enforce security policies effectively.\n\nAs cybersecurity threats continue to evolve, implementing RBAC helps organizations maintain control over sensitive data and protect critical resources from unauthorized access.",
+    date: "2025-04-04",
+    readTime: "4 min read",
+    coverImage: "https://7zg3rv0nfdklwx5q.public.blob.vercel-storage.com/naktech/RBAC-WwJykrOtvS9jK8FW1tKDjwiCyUnSOr.jpeg"  
+  },
+  {
     id: "introduction-to-cloud-computing",
     title: "What is Cloud Computing",
     excerpt:

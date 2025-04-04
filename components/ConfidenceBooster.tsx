@@ -8,7 +8,6 @@ import {
   Shield,
   Heart,
   ThumbsUp,
-  Zap,
   ChevronRight,
   ChevronLeft,
 } from "lucide-react";
@@ -149,13 +148,7 @@ const ConfidenceBooster: React.FC = () => {
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
-      <div className="flex flex-col sm:flex-row justify-between items-center mb-4 md:mb-6 gap-3 sm:gap-0">
-        <div className="flex items-center space-x-2">
-          <Zap className="text-cyan-400" size={24} />
-          <h2 className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
-            Confidence Booster
-          </h2>
-        </div>
+      <div className="flex flex-col sm:flex-row justify-center items-center mb-4 md:mb-6 gap-3 sm:gap-0">
         <button
           onClick={() => setIsAutoPlaying(!isAutoPlaying)}
           className={`px-3 py-1 rounded-full text-xs font-mono ${isAutoPlaying ? "bg-green-900 text-green-400" : "bg-purple-900 text-purple-400"} border ${isAutoPlaying ? "border-green-700" : "border-purple-700"} hover:shadow-lg transition-all`}
