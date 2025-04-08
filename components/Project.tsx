@@ -60,7 +60,7 @@ const projects: Project[] = [
     description: "Free Template Website Download for developers",
     image: "/assets/opensourcetemplate.jpg",
     technologies: ["HTML", "CSS", "JavaScript", "jQuery"],
-    link: "https://opensource-templates-9xu7.vercel.app/",
+    link: "https://opensource-template.naktech.pro/",
   },
   {
     id: 3,

@@ -10,8 +10,8 @@ import Link from "next/link";
 const BuyMeCoffee = () => {
   const [loadingTab1, setLoadingTab1] = useState(true);
   const [loadingTab2, setLoadingTab2] = useState(true);
-  const khmerQRLink = "https://pay.ababank.com/FaoheDXWd6dohWn78";
-  const dollarQRLink = "https://pay.ababank.com/CUd6dMgNumbnUFeX8";
+  const khmerQRLink = "https://link.payway.com.kh/aba?id=E9E12C666673&code=678217&acc=500626557&dynamic=true";
+  const dollarQRLink = "https://link.payway.com.kh/aba?id=E9E12C666673&code=701302&acc=003519184&dynamic=true";
   return (
     <div className="w-full min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-black py-10">
       <Tabs defaultValue="tab1" className="w-full max-w-md mx-auto px-4">
