@@ -10,8 +10,20 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "cyber-threats-software-engineers",
+    title: "Cyber Threats: What Every Software Engineer Needs to Know",
+    excerpt:
+      "Explore the evolving landscape of cyber threats and how software engineers can protect systems from modern-day attacks.",
+    content:
+      "Cybersecurity threats are evolving faster than ever, driven by advancements in technology and the growing interconnectedness of systems. For software engineers, understanding these threats is no longer optional—it's essential to building secure and resilient applications.\n\nFrom phishing scams to AI-powered malware, attackers now use sophisticated techniques to exploit vulnerabilities across networks, applications, and users. The growing complexity of modern software systems opens up new attack surfaces that demand proactive defense strategies.\n\n**Common Cyber Threats Facing Software Engineers Today:**\n- **Phishing & Social Engineering:** Fake emails, cloned websites, and deepfakes are used to deceive users into revealing sensitive data or credentials.\n- **Ransomware:** Malicious software that encrypts files and demands payment. Often spreads via email attachments or unsecured remote desktop protocols.\n- **Zero-Day Exploits:** Previously unknown vulnerabilities in software that are exploited before developers can issue patches.\n- **Supply Chain Attacks:** Infiltrating software dependencies, packages, or build processes to inject malicious code.\n- **Insider Threats:** Current or former employees misusing access to harm systems or leak data.\n\n**Emerging & Advanced Threats:**\n- **AI-Driven Attacks:** Cybercriminals use AI to craft personalized phishing attacks, generate polymorphic malware, and bypass anomaly detection.\n- **IoT Vulnerabilities:** Insecure Internet of Things devices can serve as entry points to critical infrastructure.\n- **Cloud Misconfigurations:** Exposed APIs, weak access controls, or improper storage permissions can result in major breaches.\n- **Data Poisoning & Adversarial ML:** Targeting machine learning systems with bad data to corrupt AI behavior or produce harmful results.\n\n**How Software Engineers Can Mitigate Cyber Threats:**\n1. **Implement Secure Coding Practices:** Sanitize input, use encryption, and validate user access control consistently.\n2. **Stay Informed:** Follow CVE alerts, OWASP Top 10, and emerging threat intelligence.\n3. **Use Automated Scanning Tools:** Integrate static/dynamic analysis, dependency checkers, and security linters in CI/CD pipelines.\n4. **Follow the Principle of Least Privilege:** Limit access rights for users and services to reduce attack impact.\n5. **Threat Modeling & Risk Assessment:** Identify possible attack vectors during system design to build resilient architecture.\n\n**Why It Matters:**\nCyber threats are not just the concern of IT or security teams—they are a shared responsibility. As creators of the systems people rely on every day, software engineers are on the frontlines. Understanding cyber threats empowers developers to write code that’s not only functional but defensible against attacks.\n\nIn today’s world, secure software is not a bonus—it’s a baseline.",
+    date: "2025-04-30",
+    readTime: "4 min read",
+    coverImage:
+      "https://7zg3rv0nfdklwx5q.public.blob.vercel-storage.com/naktech/iStock-917566410-dGHV6IDaxKoN1WHXbp9jfYBXCUuxkS.png"
+  },
+  {
     id: "ai-for-software-engineers",
-    title: "Artificial Intelligence for Software Engineers: A Practical Deep Dive",
+    title: "AI for Software Engineers: A Practical Deep Dive",
     excerpt:
       "Understand how AI is reshaping software development and what every software engineer should know to stay ahead.",
     content:
