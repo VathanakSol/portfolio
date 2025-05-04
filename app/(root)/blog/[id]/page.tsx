@@ -9,6 +9,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Metadata } from "next";
 
+import ReactMarkdown from "react-markdown";
+
 type Props = {
   params: { id: string };
 };
@@ -110,24 +112,30 @@ export default function BlogPost({ params }: Props) {
         <div className="grid md:grid-cols-[1fr_280px] gap-8">
           <article className="space-y-6">
             {/* Main Content */}
-            <Card className="bg-gray-200 dark:bg-gray-800 shadow-md border border-gray-300 dark:border-gray-700">
+            {/* <Card className="bg-gray-200 dark:bg-gray-800 shadow-md border border-gray-300 dark:border-gray-700">
               <CardContent className="p-4 md:p-6">
                 <div className="prose max-w-none">
-                  <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+                  <p className="text-blue-600 font-semibold dark:text-gray-300 text-lg leading-relaxed">
                     {post.excerpt}
                   </p>
-                  <div className="my-8 border-l-4 border-cyan-400 pl-6">
-                    <p className="text-gray-700 dark:text-gray-300 italic">
-                      Web3 technologies are revolutionizing how we think about
-                      digital ownership and interaction.
-                    </p>
-                  </div>
                   <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
                     {post.content}
                   </p>
                 </div>
               </CardContent>
+            </Card> */}
+
+            <Card className="bg-gray-200 dark:bg-gray-800 shadow-md border border-gray-300 dark:border-gray-700">
+              <CardContent className="p-4 md:p-6">
+                <div className="prose prose-blue dark:prose-invert max-w-none">
+                  {post.excerpt && (
+                    <ReactMarkdown>{post.excerpt}</ReactMarkdown>
+                  )}
+                  <ReactMarkdown>{post.content}</ReactMarkdown>
+                </div>
+              </CardContent>
             </Card>
+
 
             {/* Engagement Section */}
             <div className="flex items-center justify-between py-6">
