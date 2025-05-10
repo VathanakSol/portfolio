@@ -11,6 +11,15 @@ provider "vercel" {
   api_token = var.vercel_token
 }
 
+resource "vercel_project_environment_variable" "env_vars" {
+  for_each = local.env_vars
+  
+  project_id = vercel_project.nextjs.id
+  key        = each.key
+  value      = each.value
+  target     = ["production", "preview", "development"]
+}
+
 resource "vercel_project" "nextjs" {
   name      = "terraform-portfolio"
   framework = "nextjs"

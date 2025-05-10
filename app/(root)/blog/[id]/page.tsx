@@ -12,11 +12,11 @@ import { Metadata } from "next";
 import ReactMarkdown from "react-markdown";
 
 type Props = {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = blogPosts.find((post) => post.id === params.id);
+  const post = blogPosts.find(async (post) => post.id === (await params).id);
 
   if (!post) {
     return {
@@ -51,8 +51,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function BlogPost({ params }: Props) {
-  const post = blogPosts.find((post) => post.id === params.id);
+export default async function BlogPost({ params }: Props) {
+  const post = blogPosts.find(async (post) => post.id === (await params).id);
 
   if (!post) {
     notFound();
@@ -112,18 +112,6 @@ export default function BlogPost({ params }: Props) {
         <div className="grid md:grid-cols-[1fr_280px] gap-8">
           <article className="space-y-6">
             {/* Main Content */}
-            {/* <Card className="bg-gray-200 dark:bg-gray-800 shadow-md border border-gray-300 dark:border-gray-700">
-              <CardContent className="p-4 md:p-6">
-                <div className="prose max-w-none">
-                  <p className="text-blue-600 font-semibold dark:text-gray-300 text-lg leading-relaxed">
-                    {post.excerpt}
-                  </p>
-                  <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-                    {post.content}
-                  </p>
-                </div>
-              </CardContent>
-            </Card> */}
 
             <Card className="bg-gray-200 dark:bg-gray-800 shadow-md border border-gray-300 dark:border-gray-700">
               <CardContent className="p-4 md:p-6">
