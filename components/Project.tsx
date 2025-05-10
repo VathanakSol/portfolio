@@ -156,7 +156,7 @@ export default function ProjectsAndServices() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        Projects & Services
+        PROJECTS & SERVICES
       </motion.h1>
 
       <Tabs defaultValue="projects" className="my-2">
@@ -170,7 +170,7 @@ export default function ProjectsAndServices() {
                 : "bg-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700"
             } rounded-lg transition-all duration-300`}
           >
-            Projects
+            PROJECTS
           </TabsTrigger>
           <TabsTrigger
             value="services"
@@ -181,7 +181,7 @@ export default function ProjectsAndServices() {
                 : "bg-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700"
             } rounded-lg transition-all duration-300`}
           >
-            Services
+           SERVICES
           </TabsTrigger>
         </TabsList>
 

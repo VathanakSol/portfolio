@@ -1,5 +1,5 @@
-import ConfidenceBooster from "@/components/ConfidenceBooster";
 import Header from "@/components/Header";
+import TechStack from "@/components/homepage/TechStack";
 import Projects from "@/components/Project";
 import type { Metadata } from "next";
 import Script from "next/script";
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     maximumScale: 1,
   },
   category: "Technology",
-  classification: "Cloud Development Platform",
+  classification: "Portfolio Website Platform",
   robots: {
     index: true,
     follow: true,
@@ -96,7 +96,8 @@ export default function HomePage() {
           <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
-        <ConfidenceBooster />
+        {/* <ConfidenceBooster /> */}
+        <TechStack />
 
         {/* Manual Ad Unit 2 - Mid Content */}
         <div className="ad-container my-8 text-center">

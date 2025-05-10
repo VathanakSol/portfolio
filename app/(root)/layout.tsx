@@ -3,10 +3,8 @@ import "@/app/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-// import VisitorCounter from "@/components/VisitorCounter";
 import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "@/components/ui/use-toast";
-// import ElevenLabsTTS from "@/components/ElevenLabsTTS";
 import BackToTopButton from "@/components/BackToTopButton";
 import { Poppins } from "next/font/google";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
@@ -33,14 +31,34 @@ export const metadata: Metadata = {
     siteName: "NakTech",
     images: [
       {
-        url: "https://naktech.pro/assets/profile.jpg",
+        url: "https://7zg3rv0nfdklwx5q.public.blob.vercel-storage.com/naktech/2-xEHKaOOecwUXcNTcEd39pyTVqZaQSx.png",
         width: 1200,
         height: 630,
-        alt: "NakTech",
+        alt: "Sol Vathanak - NakTech",
       },
     ],
     locale: "en_US",
     type: "website",
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  category: "Technology",
+  classification: "Portfolio Website Platform",
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -69,21 +87,12 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {/* Add the Google Auto AdSense script */}
-            {/* <Script
-              id="adsbygoogle-init"
-              strategy="afterInteractive" // Load after the page is interactive
-              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1861181031288603"
-              crossOrigin="anonymous"
-            /> */}
-            <NavBar />
-            {/* <VisitorCounter /> */}
+            <NavBar />           
             <ScrollProgressBar />
             {children}
             <Analytics />
             <Toaster />
             <Footer />
-            {/* <ElevenLabsTTS /> */}
             <BackToTopButton />
           </ThemeProvider>
         </body>
