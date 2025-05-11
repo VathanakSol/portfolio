@@ -146,18 +146,38 @@ const defaultTechnologies: Technology[] = [
     color: "#06B6D4",
   },
   {
-    name: "Node.js",
-    icon: "https://api.iconify.design/logos:nodejs-icon-alt.svg",
-    color: "#339933",
-  },
-  {
-    name: "Python",
-    icon: "https://api.iconify.design/logos:python.svg",
-    color: "#3776AB",
-  },
-  {
     name: "JavaScript",
     icon: "https://api.iconify.design/logos:javascript.svg",
     color: "#F7DF1E",
   },
+  {
+    name: "Spring Boot",
+    icon: "https://api.iconify.design/devicon:spring.svg",
+    color: "#6DB33F",
+  },
+  {
+    name: "PostgreSQL",
+    icon: "https://api.iconify.design/devicon:postgresql.svg",
+    color: "#336791",
+  },
+  {
+    name: "Docker",
+    icon: "https://api.iconify.design/logos:docker-icon.svg",
+    color: "#2496ED",
+  },
+  {
+    name: "Kubernetes",
+    icon: "https://api.iconify.design/logos:kubernetes.svg",
+    color: "#326CE5",
+  },
+  {
+    name: "Terraform",
+    icon: "https://api.iconify.design/vscode-icons:file-type-terraform.svg",
+    color: "#623CE4",
+  },
+  {
+    name: "Jenkins",
+    icon: "https://api.iconify.design/devicon:jenkins.svg",
+    color: "#00B2F2",
+  }
 ];

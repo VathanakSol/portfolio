@@ -96,7 +96,6 @@ export default function HomePage() {
           <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
-        {/* <ConfidenceBooster /> */}
         <TechStack />
 
         {/* Manual Ad Unit 2 - Mid Content */}
