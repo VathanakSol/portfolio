@@ -11,7 +11,7 @@ import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { ClerkProvider } from "@clerk/nextjs";
 import Script from "next/script";
 import { cn } from "@/lib/utils";
-import { DeploymentStatusBanner } from "@/components/DeploymentStatusBanner";
+import { ProductionMaintenanceBanner } from "@/components/ProductionMaintenanceBanner";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -89,7 +89,9 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <DeploymentStatusBanner />
+            <div className="fixed top-0 left-0 right-0 z-10">
+              <ProductionMaintenanceBanner />
+            </div>
             <NavBar />
             <ScrollProgressBar />
               <div className="pt-12">
