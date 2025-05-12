@@ -10,7 +10,7 @@ import { Poppins } from "next/font/google";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { ClerkProvider } from "@clerk/nextjs";
 import Script from "next/script";
-import { BannerUpdate } from "@/components/BannerUpdate";
+import { ProductionMaintenanceBanner } from "@/components/BannerUpdate";
 import { getVercelDeploymentStatus } from "@/lib/vercel-status";
 
 const poppins = Poppins({
@@ -74,8 +74,13 @@ export default async function RootLayout({
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">🚧 Maintenance in Progress</h1>
-          <p>We are currently deploying a new version. Please check back in a few minutes.</p>
+          <h1 className="text-2xl font-bold mb-4">
+            🚧 Maintenance in Progress
+          </h1>
+          <p>
+            We are currently deploying a new version. Please check back in a few
+            minutes.
+          </p>
         </div>
       </div>
     );
@@ -100,8 +105,8 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <BannerUpdate />
-            <NavBar />           
+            <ProductionMaintenanceBanner />
+            <NavBar />
             <ScrollProgressBar />
             {children}
             <Analytics />

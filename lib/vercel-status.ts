@@ -1,34 +1,36 @@
-const VERCEL_TEAM_ID = process.env.VERCEL_TEAM_ID;
-const VERCEL_PROJECT_ID = process.env.VERCEL_PROJECT_ID;
-const VERCEL_TOKEN = process.env.VERCEL_TOKEN;
-
 export async function getVercelDeploymentStatus() {
-  try {
-    const response = await fetch(
-      `https://api.vercel.com/v6/deployments?projectId=${VERCEL_PROJECT_ID}&teamId=${VERCEL_TEAM_ID}&limit=1`,
-      {
-        headers: {
-          Authorization: `Bearer ${VERCEL_TOKEN}`,
-        },
-      }
-    );
+  // For production, check the actual deployment status
+  if (process.env.VERCEL_ENV === 'production') {
+    try {
+      const response = await fetch(
+        `https://api.vercel.com/v6/deployments?projectId=${process.env.VERCEL_PROJECT_ID}&teamId=${process.env.VERCEL_TEAM_ID}&limit=1&target=production`,
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.VERCEL_TOKEN}`,
+          },
+          next: { revalidate: 10 } // Revalidate every 10 seconds
+        }
+      );
 
-    if (!response.ok) throw new Error("Failed to fetch deployments");
-    
-    const data = await response.json();
-    const latestDeployment = data.deployments[0];
-    
-    return {
-      isBuilding: latestDeployment?.state === 'BUILDING',
-      state: latestDeployment?.state || 'UNKNOWN',
-      createdAt: latestDeployment?.createdAt,
-    };
-  } catch (error) {
-    console.error('Error fetching Vercel status:', error);
-    return {
-      isBuilding: false,
-      state: 'ERROR',
-      createdAt: null,
-    };
+      const data = await response.json();
+      const productionDeployment = data.deployments[0];
+      
+      return {
+        isBuilding: productionDeployment?.state === 'BUILDING',
+        state: productionDeployment?.state || 'READY',
+        url: productionDeployment?.url, 
+        alias: productionDeployment?.alias?.[0] 
+      };
+    } catch (error) {
+      console.error('Error checking production status:', error);
+    }
   }
+  
+  // Default return if not in production or error occurs
+  return {
+    isBuilding: false,
+    state: 'READY',
+    url: '',
+    alias: ''
+  };
 }
