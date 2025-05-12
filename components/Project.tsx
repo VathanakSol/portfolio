@@ -167,7 +167,7 @@ export default function ProjectsAndServices() {
             className={`${
               activeTab === "projects"
                 ? "bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-cyan-500 dark:to-blue-500 text-white shadow-md dark:shadow-cyan-500/30"
-                : "bg-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700"
+                : "bg-transparent text-gray-400 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700"
             } rounded-lg transition-all duration-300`}
           >
             PROJECTS
