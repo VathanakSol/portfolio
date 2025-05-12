@@ -10,7 +10,7 @@ import { Poppins } from "next/font/google";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { ClerkProvider } from "@clerk/nextjs";
 import Script from "next/script";
-import { ProductionMaintenanceBanner } from "@/components/BannerUpdate";
+import { BannerUpdate } from "@/components/BannerUpdate";
 import { getVercelDeploymentStatus } from "@/lib/vercel-status";
 
 const poppins = Poppins({
@@ -105,7 +105,7 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <ProductionMaintenanceBanner />
+            <BannerUpdate />
             <NavBar />
             <ScrollProgressBar />
             {children}

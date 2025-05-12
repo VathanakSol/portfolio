@@ -2,51 +2,35 @@
 
 import { useEffect, useState } from 'react';
 
-export function ProductionMaintenanceBanner() {
-  const [status, setStatus] = useState({
-    isBuilding: false,
-    state: 'READY',
-    url: '',
-    alias: ''
-  });
+export function BannerUpdate() {
+  const [isBuilding, setIsBuilding] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const checkStatus = async () => {
+    async function checkStatus() {
       try {
         const response = await fetch('/api/vercel-status');
         const data = await response.json();
-        setStatus(data);
+        setIsBuilding(data.isBuilding);
       } catch (error) {
-        console.error('Failed to fetch status:', error);
+        console.error('Error checking status:', error);
+      } finally {
+        setIsLoading(false);
       }
-    };
+    }
 
     checkStatus();
-    const interval = setInterval(checkStatus, 10000); 
-
+    // Check every 30 seconds
+    const interval = setInterval(checkStatus, 30000);
     return () => clearInterval(interval);
   }, []);
 
-  if (!status.isBuilding) return null;
+  if (isLoading) return null;
+  if (!isBuilding) return null;
 
   return (
-    <div className="fixed top-0 left-0 right-0 bg-yellow-500 text-black p-3 text-center z-50 flex flex-col md:flex-row items-center justify-center gap-2">
-      <div className="flex items-center gap-2">
-        <span className="animate-pulse">🚧</span>
-        <strong>Maintenance Notice:</strong>
-        <span>New version being deployed to {status.alias || 'production'}</span>
-      </div>
-      <div className="text-sm">
-        Status: {status.state} •{' '}
-        <a 
-          href={`https://${status.url}`} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="underline"
-        >
-          View deployment progress
-        </a>
-      </div>
+    <div className="fixed top-0 left-0 right-0 bg-yellow-500 text-black p-2 text-center z-50">
+      ⚠️ Website is currently under maintenance (building new version). Some features may be temporarily unavailable.
     </div>
   );
 }
