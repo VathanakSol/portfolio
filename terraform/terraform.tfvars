@@ -1,1 +1,1 @@
-vercel_token = "${VERCEL_TOKEN}"
+vercel_token = "oRNmpySSbrPiUPpox9k15nlS"
