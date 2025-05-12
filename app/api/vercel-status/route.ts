@@ -1,9 +1,10 @@
-import { getVercelDeploymentStatus } from '@/lib/vercel-status';
+import { VercelStatusService } from '@/services/vercel-status';
 import { NextResponse } from 'next/server';
 
-export const dynamic = 'force-dynamic'; // Ensure this is always fresh
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export async function GET() {
-  const status = await getVercelDeploymentStatus();
+  const status = await VercelStatusService.getProductionStatus();
   return NextResponse.json(status);
 }

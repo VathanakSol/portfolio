@@ -10,8 +10,8 @@ import { Poppins } from "next/font/google";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import { ClerkProvider } from "@clerk/nextjs";
 import Script from "next/script";
-import { BannerUpdate } from "@/components/BannerUpdate";
-import { getVercelDeploymentStatus } from "@/lib/vercel-status";
+import { cn } from "@/lib/utils";
+import { DeploymentStatusBanner } from "@/components/DeploymentStatusBanner";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -69,22 +69,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { isBuilding } = await getVercelDeploymentStatus();
-  if (isBuilding) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">
-            🚧 Maintenance in Progress
-          </h1>
-          <p>
-            We are currently deploying a new version. Please check back in a few
-            minutes.
-          </p>
-        </div>
-      </div>
-    );
-  }
   return (
     <ClerkProvider>
       <html lang="en">
@@ -98,17 +82,19 @@ export default async function RootLayout({
           />
         </head>
 
-        <body className={poppins.className}>
+        <body className={cn(poppins.className, "relative")}>
           <ThemeProvider
             attribute="class"
             defaultTheme="light"
             enableSystem
             disableTransitionOnChange
           >
-            <BannerUpdate />
+            <DeploymentStatusBanner />
             <NavBar />
             <ScrollProgressBar />
-            {children}
+              <div className="pt-12">
+                {children}
+              </div>
             <Analytics />
             <Toaster />
             <Footer />
