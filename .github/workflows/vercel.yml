@@ -22,7 +22,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: hadolint  # Wait for Hadolint to pass first
+    # needs: hadolint
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -33,4 +33,4 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: '--prod'
+          # vercel-args: '--prod'
