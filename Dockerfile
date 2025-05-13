@@ -1,5 +1,5 @@
 # Use an official Node.js runtime as a parent image for the builder stage
-FROM node:20-alpine AS builder
+FROM node:20-latest AS builder
 
 # Install dependencies
 RUN apk add --no-cache libc6-compat
