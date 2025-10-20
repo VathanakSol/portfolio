@@ -1,0 +1,52 @@
+{
+  "hero": {
+    "title": "Hi, I'm Vathanak",
+    "subtitle": "Full Stack Developer & DevOps Engineer",
+    "description": "I build modern web applications with passion and precision. Specializing in React, Next.js, and creating seamless user experiences.",
+    "cta": "View My Work",
+    "contact": "Get In Touch"
+  },
+  "projects": {
+    "title": "My Projects",
+    "viewProject": "View Project",
+    "project1": {
+      "title": "Dok Play",
+      "description": "A User-Friendly registry platform that enables users to manage image & container. Features secure authentication, real-time synchronization, and advanced search capabilities for seamless content organization.",
+      "tech": ["Next.js", "Tailwind", "Docker API", "Netlify"],
+      "image": "https://utfs.io/a/30qinxb2cu/v2QQauFkR64MDestxICtyBzxYiFEdOhLMo4rQ7SIfbXkANw5",
+      "liveUrl": "https://dokplay.netlify.app/"
+    }
+  },
+  "contact": {
+    "title": "Let's Work Together",
+    "description": "Have a project in mind? Let's discuss how we can work together to bring your ideas to life.",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "namePlaceholder": "Your Name",
+    "emailPlaceholder": "Your Email",
+    "messagePlaceholder": "Your Message",
+    "sendButton": "Send Message",
+    "sending": "Sending...",
+    "getInTouch": "Get In Touch",
+    "successMessage": "Thank you! Your message has been sent successfully.",
+    "errorMessage": "Oops! Something went wrong. Please try again."
+  },
+  "footer": {
+    "brand": "PORTFOLIO",
+    "quickLinks": "Quick Links",
+    "home": "Home",
+    "projects": "Projects",
+    "contact": "Contact",
+    "connect": "Connect",
+    "copyright": "All rights reserved."
+  },
+  "navbar": {
+    "home": "Home",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "techStack": {
+    "title": "Tech Stack"
+  }
+}

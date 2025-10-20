@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Utility classes for font application */
+.font-kh {
+  font-family: var(--font-kh), sans-serif !important;
+}
+
+.font-jersey-15 {
+  font-family: var(--font-jersey-15), Arial, Helvetica, sans-serif !important;
+}
+
+/* Ensure all child elements inherit the font */
+.font-kh * {
+  font-family: var(--font-kh), sans-serif !important;
+}
+
+.font-jersey-15 * {
+  font-family: var(--font-jersey-15), Arial, Helvetica, sans-serif !important;
+}
