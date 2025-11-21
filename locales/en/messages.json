@@ -12,8 +12,13 @@
     "project1": {
       "title": "Dok Play",
       "description": "A User-Friendly registry platform that enables users to manage image & container. Features secure authentication, real-time synchronization, and advanced search capabilities for seamless content organization.",
-      "tech": ["Next.js", "Tailwind", "Docker API", "Netlify"],
-      "image": "https://utfs.io/a/30qinxb2cu/v2QQauFkR64MDestxICtyBzxYiFEdOhLMo4rQ7SIfbXkANw5",
+      "tech": [
+        "Next.js",
+        "Tailwind",
+        "Docker API",
+        "Netlify"
+      ],
+      "image": "https://5t8sz5eiw3.ufs.sh/f/k5OfAMzlxF3HoUfvRybtdwvQpzCGIBh3oqM4btR6mHaSWTjJ",
       "liveUrl": "https://dokplay.netlify.app/"
     }
   },
