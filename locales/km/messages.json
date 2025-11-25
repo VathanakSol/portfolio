@@ -20,6 +20,19 @@
       ],
       "image": "https://5t8sz5eiw3.ufs.sh/f/k5OfAMzlxF3HoUfvRybtdwvQpzCGIBh3oqM4btR6mHaSWTjJ",
       "liveUrl": "https://dokplay.netlify.app/"
+    },
+    "project2": {
+      "title": "NakTech ស្វែងរក",
+      "description": "វេទិកាស្វែងរកសម្រាប់អ្នកសិក្សា IT ដើម្បីស្វែងរកធនធានដ៏ល្អបំផុតសម្រាប់ការរៀន និងផ្តល់ឧបករណ៍ដើម្បីជួយពួកគេរៀន និងប្រើប្រាស់វា។",
+      "tech": [
+        "Next.js",
+        "Tailwind",
+        "TypeScript",
+        "NeonDB",
+        "Prisma"
+      ],
+      "image": "https://5t8sz5eiw3.ufs.sh/f/k5OfAMzlxF3HKhpIq0cDtVyn56ebxk9YGpmQCMTazBirHSXd",
+      "liveUrl": "https://antigravity-ide-testing.vercel.app/"
     }
   },
   "contact": {

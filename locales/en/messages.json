@@ -20,6 +20,19 @@
       ],
       "image": "https://5t8sz5eiw3.ufs.sh/f/k5OfAMzlxF3HoUfvRybtdwvQpzCGIBh3oqM4btR6mHaSWTjJ",
       "liveUrl": "https://dokplay.netlify.app/"
+    },
+    "project2": {
+      "title": "NakTech Search",
+      "description": "Search platform for IT learner to find the best resources for learning and provide a tool to help them learn and use it.",
+      "tech": [
+        "Next.js",
+        "Tailwind",
+        "TypeScript",
+        "NeonDB",
+        "Prisma"
+      ],
+      "image": "https://5t8sz5eiw3.ufs.sh/f/k5OfAMzlxF3HKhpIq0cDtVyn56ebxk9YGpmQCMTazBirHSXd",
+      "liveUrl": "https://antigravity-ide-testing.vercel.app/"
     }
   },
   "contact": {

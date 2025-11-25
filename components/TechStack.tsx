@@ -32,14 +32,23 @@ export default function TechStack({ currentLocale }: TechStackProps) {
       icon: "https://api.iconify.design/skill-icons:docker.svg",
       target: "https://www.docker.com/",
     },
+    {
+      name: "Postgres",
+      icon: "https://api.iconify.design/devicon:postgresql.svg",
+      target: "https://www.postgresql.org/"
+    },
+    {
+      name: "NeonDB",
+      icon: "https://api.iconify.design/logos:neon-icon.svg",
+      target: "https://neon.tech/"
+    }
   ];
 
   return (
     <section
       id="tech-stack"
-      className={` flex items-center justify-center px-4 pb-8 ${
-        currentLocale === "km" ? "font-kh" : ""
-      }`}
+      className={` flex items-center justify-center px-4 pb-8 ${currentLocale === "km" ? "font-kh" : ""
+        }`}
     >
       <div className="max-w-4xl w-full">
         {/* Title with underline */}
