@@ -9,6 +9,19 @@
   "projects": {
     "title": "My Projects",
     "viewProject": "View Project",
+    "latestLabel": "Latest Project",
+    "project3": {
+      "title": "Coffee Finder",
+      "description": "A platform search for coffee shops nearby with a user-friendly interface, real-time updates, and personalized recommendations based on user preferences.",
+      "tech": [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Google Maps API"
+      ],
+      "image": "https://5t8sz5eiw3.ufs.sh/f/k5OfAMzlxF3HmLP8Q6rUcJLCoQ5uESA903VzvHO8Ti4Fwbk7",
+      "liveUrl": "https://coffee-finder.up.railway.app/"
+    },
     "project1": {
       "title": "Dok Play",
       "description": "A User-Friendly registry platform that enables users to manage image & container. Features secure authentication, real-time synchronization, and advanced search capabilities for seamless content organization.",
@@ -22,7 +35,7 @@
       "liveUrl": "https://dokplay.netlify.app/"
     },
     "project2": {
-      "title": "NakTech Search",
+      "title": "Future Dev 2050",
       "description": "Search platform for IT learner to find the best resources for learning and provide a tool to help them learn and use it.",
       "tech": [
         "Next.js",
@@ -31,8 +44,8 @@
         "NeonDB",
         "Prisma"
       ],
-      "image": "https://5t8sz5eiw3.ufs.sh/f/k5OfAMzlxF3HKhpIq0cDtVyn56ebxk9YGpmQCMTazBirHSXd",
-      "liveUrl": "https://antigravity-ide-testing.vercel.app/"
+      "image": "https://5t8sz5eiw3.ufs.sh/f/k5OfAMzlxF3HWoir0gptDkQvs7e4BA851NiYcVr03TqSEzZG",
+      "liveUrl": "https://v2050.vercel.app"
     }
   },
   "contact": {
